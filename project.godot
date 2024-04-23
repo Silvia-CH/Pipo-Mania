@@ -17,8 +17,10 @@ config/icon="res://icon.svg"
 
 [display]
 
-window/size/viewport_width=1024
-window/size/viewport_height=600
+window/size/viewport_width=1600
+window/size/viewport_height=900
+window/size/resizable=false
+window/size/borderless=true
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="res://art/mouse.png"
 
