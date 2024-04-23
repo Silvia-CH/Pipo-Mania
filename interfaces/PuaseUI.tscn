@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://lb8c46q3d5yk"]
+
+[ext_resource type="Script" path="res://interfaces/PuaseUI.gd" id="1_4thj4"]
+[ext_resource type="PackedScene" uid="uid://lggl0qkuqk2g" path="res://interfaces/LoginUI.tscn" id="2_lcgwd"]
+
+[node name="PuaseUi" type="CanvasLayer"]
+script = ExtResource("1_4thj4")
+
+[node name="ContenedorPadre" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ContenedorPadre"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="ColorRect" type="ColorRect" parent="ContenedorPadre/MarginContainer"]
+custom_minimum_size = Vector2(1500, 350)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 1)
+
+[node name="Ventanas" type="TabContainer" parent="ContenedorPadre/MarginContainer"]
+custom_minimum_size = Vector2(400, 400)
+layout_mode = 2
+
+[node name="Opciones" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/Ventanas"]
+layout_mode = 2
+
+[node name="Inicio de sesion" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/Ventanas"]
+visible = false
+layout_mode = 2
+
+[node name="LoginUI" parent="ContenedorPadre/MarginContainer/Ventanas/Inicio de sesion" instance=ExtResource("2_lcgwd")]
+visible = false
+
+[node name="Clasificación" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/Ventanas"]
+visible = false
+layout_mode = 2
+
+[connection signal="draw" from="ContenedorPadre/MarginContainer/Ventanas/Inicio de sesion" to="." method="_on_inicio_de_sesion_draw"]
+[connection signal="focus_entered" from="ContenedorPadre/MarginContainer/Ventanas/Inicio de sesion" to="." method="_on_inicio_de_sesion_focus_entered"]

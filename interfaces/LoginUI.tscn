@@ -25,13 +25,6 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer"]
-custom_minimum_size = Vector2(400, 400)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-color = Color(0.25098, 0.25098, 0.25098, 1)
-
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
@@ -47,7 +40,7 @@ alignment = 1
 layout_mode = 2
 text = "Introduzca su Email:"
 
-[node name="Email" type="TextEdit" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Email" type="LineEdit" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 placeholder_text = "Email:"
@@ -56,7 +49,7 @@ placeholder_text = "Email:"
 layout_mode = 2
 text = "Introduzca su Contraseña:"
 
-[node name="Passwd" type="TextEdit" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Passwd" type="LineEdit" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 placeholder_text = "Contraseña"
@@ -72,4 +65,6 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Inicio de sesion"
 
+[connection signal="focus_entered" from="Control/MarginContainer" to="." method="_on_margin_container_focus_entered"]
 [connection signal="text_changed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/Email" to="." method="_on_email_text_changed"]
+[connection signal="resized" from="Control/MarginContainer/VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_resized"]
