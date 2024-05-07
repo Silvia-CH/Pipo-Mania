@@ -545,6 +545,7 @@ _data = {
 script = ExtResource("1_7bm0x")
 
 [node name="PuaseUi" parent="." instance=ExtResource("2_agm8u")]
+visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_csni7")]
 z_index = 5

@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://b12dofwssxsuf"]
+
+[ext_resource type="Script" path="res://interfaces/Recursos Interfaces/OpcionDesplegable.gd" id="1_pxmkb"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pxmkb")
+
+[node name="Tipo_Ventana" type="HBoxContainer" parent="."]
+layout_mode = 0
+
+[node name="Label" type="Label" parent="Tipo_Ventana"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Tipo de ventana"
+
+[node name="VSeparator" type="VSeparator" parent="Tipo_Ventana"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Tipo_Ventana"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "Pantalla Completa"
+popup/item_0/id = 0
+popup/item_1/text = "Modo ventana"
+popup/item_1/id = 1
+popup/item_2/text = "Ventana Sin Bordes"
+popup/item_2/id = 2
+popup/item_3/text = "Ventana Pantalla Completa"
+popup/item_3/id = 3
+
+[connection signal="item_selected" from="Tipo_Ventana/OptionButton" to="." method="_on_option_button_item_selected"]

@@ -1,14 +1,12 @@
 extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
+@onready var salir = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir
+
+signal salir_menu_opciones
+
 func _ready():
-	
-	pass # Replace with function body.
+	set_process(false)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
-func _on_inicio_de_sesion_draw():
-	$"ContenedorPadre/MarginContainer/Ventanas/Inicio de sesion/LoginUI".visible=true
-	pass # Replace with function body.
+func _on_salir_pressed():
+	salir_menu_opciones.emit()
+	set_process(false)
