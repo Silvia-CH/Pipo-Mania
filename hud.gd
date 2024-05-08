@@ -1,6 +1,7 @@
 extends CanvasLayer
 signal pause
 signal unpause
+signal commands_changed(text)
 
 var is_paused = false
 # Called when the node enters the scene tree for the first time.
@@ -27,6 +28,7 @@ func _input(event):
 			
 func _on_enter_pressed():
 	$Show.text = $TextEdit.text
+	commands_changed.emit($TextEdit.text)
 
 
 func _on_clear_pressed():
