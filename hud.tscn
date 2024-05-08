@@ -31,7 +31,7 @@ drag_and_drop_selection_enabled = false
 virtual_keyboard_enabled = false
 middle_mouse_paste_enabled = false
 
-[node name="TextEdit" type="TextEdit" parent="."]
+[node name="TextEdit" type="LineEdit" parent="."]
 visible = false
 anchors_preset = 12
 anchor_top = 1.0
@@ -48,9 +48,9 @@ drag_and_drop_selection_enabled = false
 
 [node name="Enter" type="Button" parent="TextEdit"]
 layout_mode = 0
-offset_left = 912.0
+offset_left = 1048.0
 offset_top = 88.0
-offset_right = 984.0
+offset_right = 1120.0
 offset_bottom = 128.0
 shortcut = SubResource("Shortcut_acvw6")
 text = "Enter
@@ -58,9 +58,9 @@ text = "Enter
 
 [node name="Clear" type="Button" parent="TextEdit"]
 layout_mode = 0
-offset_left = 912.0
+offset_left = 1048.0
 offset_top = 16.0
-offset_right = 984.0
+offset_right = 1120.0
 offset_bottom = 56.0
 text = "Clear"
 

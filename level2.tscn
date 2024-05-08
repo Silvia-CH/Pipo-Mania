@@ -527,7 +527,7 @@ layer = 3
 
 [node name="DeathDialog" type="ConfirmationDialog" parent="."]
 title = "HAS MUERTO"
-initial_position = 1
+position = Vector2i(450, 300)
 size = Vector2i(300, 80)
 ok_button_text = "Reintentar"
 cancel_button_text = "Exit"

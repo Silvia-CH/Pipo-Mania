@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://duli8548ijb2w"]
+
+[ext_resource type="Script" path="res://interfaces/Recursos Interfaces/SelectorResolucion.gd" id="1_t4ctj"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t4ctj")
+
+[node name="Resolucion" type="HBoxContainer" parent="."]
+layout_mode = 0
+
+[node name="Label" type="Label" parent="Resolucion"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Resolución"
+
+[node name="VSeparator" type="VSeparator" parent="Resolucion"]
+layout_mode = 2
+
+[node name="SelectorRes" type="OptionButton" parent="Resolucion"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+item_count = 4
+selected = 0
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "800x600"
+popup/item_3/id = 3
+
+[connection signal="item_selected" from="Resolucion/SelectorRes" to="." method="_on_selector_res_item_selected"]
