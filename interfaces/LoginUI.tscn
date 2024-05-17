@@ -1,20 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://lggl0qkuqk2g"]
-
-[ext_resource type="Script" path="res://interfaces/LoginUI.gd" id="1_aq16k"]
+[gd_scene format=3 uid="uid://lggl0qkuqk2g"]
 
 [node name="LoginUI" type="CanvasLayer"]
-script = ExtResource("1_aq16k")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 1
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,46 +13,42 @@ theme_override_constants/margin_top = 100
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 
-[node name="HBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="labelEmail" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="labelEmail" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Introduzca su Email:"
 
-[node name="Email" type="LineEdit" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Email" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 placeholder_text = "Email:"
 
-[node name="labelPasswd" type="Label" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="labelPasswd" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Introduzca su Contraseña:"
 
-[node name="Passwd" type="LineEdit" parent="Control/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Passwd" type="LineEdit" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 placeholder_text = "Contraseña"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Button" type="Button" parent="Control/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Inicio de sesion"
-
-[connection signal="focus_entered" from="Control/MarginContainer" to="." method="_on_margin_container_focus_entered"]
-[connection signal="text_changed" from="Control/MarginContainer/VBoxContainer/HBoxContainer2/Email" to="." method="_on_email_text_changed"]
-[connection signal="resized" from="Control/MarginContainer/VBoxContainer/HBoxContainer" to="." method="_on_h_box_container_resized"]

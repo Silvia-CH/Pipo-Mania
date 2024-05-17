@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://lb8c46q3d5yk"]
+[gd_scene load_steps=4 format=3 uid="uid://lb8c46q3d5yk"]
 
 [ext_resource type="Script" path="res://interfaces/PuaseUI.gd" id="1_4thj4"]
 [ext_resource type="PackedScene" uid="uid://b12dofwssxsuf" path="res://interfaces/Recursos Interfaces/OpcionDesplegable.tscn" id="2_2es7m"]
-[ext_resource type="PackedScene" uid="uid://lggl0qkuqk2g" path="res://interfaces/LoginUI.tscn" id="2_lcgwd"]
 [ext_resource type="PackedScene" uid="uid://duli8548ijb2w" path="res://interfaces/Recursos Interfaces/SelectorResolucion.tscn" id="3_40p3c"]
 
 [node name="PuaseUi" type="CanvasLayer"]
@@ -59,22 +58,67 @@ layout_mode = 2
 theme_override_constants/separation = 200
 
 [node name="Tipo_Ventana" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer/VBoxContainer" instance=ExtResource("2_2es7m")]
-visible = false
 layout_mode = 2
 
 [node name="Resolucion" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer/VBoxContainer" instance=ExtResource("3_40p3c")]
-visible = false
 layout_mode = 2
 
 [node name="Inicio de sesion" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
 visible = false
 layout_mode = 2
 
-[node name="LoginUI" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion" instance=ExtResource("2_lcgwd")]
-visible = false
+[node name="LoginUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="labelEmail" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Introduzca su Email:"
+
+[node name="Email" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+placeholder_text = "Email:"
+
+[node name="labelPasswd" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Introduzca su Contraseña:"
+
+[node name="Passwd" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+placeholder_text = "Contraseña"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Button" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Inicio de sesion/LoginUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Inicio de sesion"
 
 [node name="Clasificación" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
 visible = false
+layout_mode = 2
+
+[node name="Control" type="Control" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Clasificación"]
 layout_mode = 2
 
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir" to="." method="_on_salir_pressed"]
