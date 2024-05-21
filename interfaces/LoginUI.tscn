@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://lggl0qkuqk2g"]
+[gd_scene load_steps=2 format=3 uid="uid://lggl0qkuqk2g"]
+
+[ext_resource type="Script" path="res://interfaces/LoginUI.gd" id="1_clemw"]
 
 [node name="LoginUI" type="CanvasLayer"]
+script = ExtResource("1_clemw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -46,9 +49,18 @@ placeholder_text = "Contraseña"
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 5
 alignment = 1
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Inicio de sesion" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Inicio de sesion"
+
+[node name="Registro" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Registro"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Inicio de sesion" to="." method="_on_inicio_de_sesion_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/Registro" to="." method="_on_registro_pressed"]
