@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cd4wwl6dhugii"]
 
 [ext_resource type="Script" path="res://interfaces/MainUI.gd" id="1_ynoir"]
-[ext_resource type="PackedScene" uid="uid://h7oea02rvr0o" path="res://interfaces/PuaseUI.tscn" id="2_6jv70"]
+[ext_resource type="PackedScene" uid="uid://lb8c46q3d5yk" path="res://interfaces/PuaseUI.tscn" id="2_6jv70"]
 
 [sub_resource type="SystemFont" id="SystemFont_m57sw"]
 font_names = PackedStringArray("Monocraft")

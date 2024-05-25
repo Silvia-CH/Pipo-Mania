@@ -1,9 +1,49 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1716628600
+::res://::1716630160
+export_presets.cfg::TextFile::-1::1716629839::0::1::::<><>::
 icon.svg::CompressedTexture2D::1636416022714048737::1716213532::1716213537::1::::<><>::
-::res://actors/::1716375176
+::res://actors/::1716629187
 player.gd::GDScript::-1::1716366529::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::61511070288468316::1716375176::0::1::::<><>::uid://bhh7000hh2i3::::res://art/extendedEnemies/player_sprites/beige/alienBeige.png<>uid://b7yga3m5wvfnv::::res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png<>uid://c1hgpdtswfs0m::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk1.png<>uid://ftugm6wngb0b::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk2.png
+player.tscn::PackedScene::61511070288468316::1716629187::0::1::::<><>::uid://bhh7000hh2i3::::res://art/extendedEnemies/player_sprites/beige/alienBeige.png<>uid://b7yga3m5wvfnv::::res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png<>uid://c1hgpdtswfs0m::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk1.png<>uid://ftugm6wngb0b::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk2.png
+::res://addons/::1716629839
+::res://addons/godot-firebase/::1716629857
+icon.svg::CompressedTexture2D::1932520971276548949::1716629839::1716629857::1::::<><>::
+plugin.cfg::TextFile::-1::1716629839::0::1::::<><>::
+plugin.gd::GDScript::-1::1716629839::0::1::::<>EditorPlugin<>::
+README.md::TextFile::-1::1716629839::0::1::::<><>::
+Utilies.gd::GDScript::-1::1716629839::0::1::::Utilities<>Node<>::
+::res://addons/godot-firebase/auth/::1716629839
+auth.gd::GDScript::-1::1716629839::0::1::::FirebaseAuth<>HTTPRequest<>::
+auth_provider.gd::GDScript::-1::1716629839::0::1::::AuthProvider<>RefCounted<>::
+user_data.gd::GDScript::-1::1716629839::0::1::::FirebaseUserData<>RefCounted<>::
+::res://addons/godot-firebase/auth/providers/::1716629839
+facebook.gd::GDScript::-1::1716629839::0::1::::FacebookProvider<>AuthProvider<>::
+github.gd::GDScript::-1::1716629839::0::1::::GitHubProvider<>AuthProvider<>::
+google.gd::GDScript::-1::1716629839::0::1::::GoogleProvider<>AuthProvider<>::
+twitter.gd::GDScript::-1::1716629839::0::1::::TwitterProvider<>AuthProvider<>::
+::res://addons/godot-firebase/database/::1716629839
+database.gd::GDScript::-1::1716629839::0::1::::FirebaseDatabase<>Node<>::
+database_store.gd::GDScript::-1::1716629839::0::1::::FirebaseDatabaseStore<>Node<>::
+reference.gd::GDScript::-1::1716629839::0::1::::FirebaseDatabaseReference<>Node<>::
+resource.gd::GDScript::-1::1716629839::0::1::::FirebaseResource<>Resource<>::
+::res://addons/godot-firebase/dynamiclinks/::1716629839
+dynamiclinks.gd::GDScript::-1::1716629839::0::1::::FirebaseDynamicLinks<>Node<>::
+::res://addons/godot-firebase/firebase/::1716629839
+firebase.gd::GDScript::-1::1716629839::0::1::::<>Node<>::
+firebase.tscn::PackedScene::6250566209717982510::1716629839::0::1::::<><>::res://addons/godot-firebase/database/database.gd<>res://addons/godot-firebase/firestore/firestore.gd<>res://addons/godot-firebase/firebase/firebase.gd<>res://addons/godot-firebase/auth/auth.gd<>res://addons/godot-firebase/storage/storage.gd<>res://addons/godot-firebase/dynamiclinks/dynamiclinks.gd<>res://addons/godot-firebase/functions/functions.gd
+::res://addons/godot-firebase/firestore/::1716629839
+firestore.gd::GDScript::-1::1716629839::0::1::::FirebaseFirestore<>Node<>::
+firestore_collection.gd::GDScript::-1::1716629839::0::1::::FirestoreCollection<>RefCounted<>::
+firestore_document.gd::GDScript::-1::1716629839::0::1::::FirestoreDocument<>RefCounted<>::
+firestore_query.gd::GDScript::-1::1716629839::0::1::::FirestoreQuery<>RefCounted<>::
+firestore_task.gd::GDScript::-1::1716629839::0::1::::FirestoreTask<>RefCounted<>::
+::res://addons/godot-firebase/functions/::1716629839
+functions.gd::GDScript::-1::1716629839::0::1::::FirebaseFunctions<>Node<>::
+function_task.gd::GDScript::-1::1716629839::0::1::::FunctionTask<>RefCounted<>::
+::res://addons/godot-firebase/storage/::1716629839
+storage.gd::GDScript::-1::1716629839::0::1::::FirebaseStorage<>Node<>::
+storage_reference.gd::GDScript::-1::1716629839::0::1::::StorageReference<>RefCounted<>::
+storage_task.gd::GDScript::-1::1716629839::0::1::::StorageTask<>RefCounted<>::
 ::res://art/::1716372725
 mouse.png::CompressedTexture2D::1049653158620287406::1715158536::1716372725::1::::<><>::
 ::res://art/buildings/::1716369204
@@ -716,24 +756,24 @@ sheet.xml::TextFile::-1::1397296941::0::1::::<><>::
 ::res://art/extendedTileset/Vector/::1716367724
 part1.svg::CompressedTexture2D::6115142473869026175::1397298182::1716367724::1::::<><>::
 part2.svg::CompressedTexture2D::7482820546506256659::1397298185::1716367724::1::::<><>::
-::res://interfaces/::1716375175
+::res://interfaces/::1716629839
 fondoNegro.jpg::CompressedTexture2D::9054707075169596071::1715158536::1716213719::1::::<><>::
 HudUI.gd::GDScript::-1::1716373445::0::1::::<>CanvasLayer<>::
-HudUI.tscn::PackedScene::5672615457365408216::1716375175::0::1::::<><>::res://interfaces/HudUI.gd
-LoginUI.gd::GDScript::-1::1716323964::0::1::::<>CanvasLayer<>::
-LoginUI.tscn::PackedScene::7687613672775584407::1716375175::0::1::::<><>::res://interfaces/LoginUI.gd
-MainUI.gd::GDScript::-1::1716323964::0::1::::<>Control<>::
-MainUI.tscn::PackedScene::5044650540267045088::1716375175::0::1::::<><>::res://interfaces/MainUI.gd<>uid://h7oea02rvr0o::::res://interfaces/PuaseUI.tscn
-PuaseUI.gd::GDScript::-1::1716323964::0::1::::<>CanvasLayer<>::
-PuaseUI.tscn::PackedScene::558239214540920060::1716375175::0::1::::<><>::res://interfaces/PuaseUI.gd<>uid://b12dofwssxsuf::::res://interfaces/Recursos Interfaces/OpcionDesplegable.tscn<>uid://dhr64ymlkva8n::::res://interfaces/LoginUI.tscn<>uid://duli8548ijb2w::::res://interfaces/Recursos Interfaces/SelectorResolucion.tscn
+HudUI.tscn::PackedScene::5672615457365408216::1716629186::0::1::::<><>::res://interfaces/HudUI.gd
+LoginUI.gd::GDScript::-1::1716629839::0::1::::<>CanvasLayer<>::
+LoginUI.tscn::PackedScene::7687613672775584407::1716629839::0::1::::<><>::res://interfaces/LoginUI.gd
+MainUI.gd::GDScript::-1::1716629839::0::1::::<>Control<>::
+MainUI.tscn::PackedScene::5044650540267045088::1716629839::0::1::::<><>::res://interfaces/MainUI.gd<>uid://h7oea02rvr0o::::res://interfaces/PuaseUI.tscn
+PuaseUI.gd::GDScript::-1::1716629839::0::1::::<>CanvasLayer<>::
+PuaseUI.tscn::PackedScene::776150461952147786::1716629958::0::1::::<><>::res://interfaces/PuaseUI.gd<>uid://b12dofwssxsuf::::res://interfaces/Recursos Interfaces/OpcionDesplegable.tscn<>uid://duli8548ijb2w::::res://interfaces/Recursos Interfaces/SelectorResolucion.tscn
 ::res://interfaces/Recursos Interfaces/::1716367460
 OpcionDesplegable.gd::GDScript::-1::1716323964::0::1::::<>Control<>::
 OpcionDesplegable.tscn::PackedScene::4267276267179789965::1715158536::0::1::::<><>::res://interfaces/Recursos Interfaces/OpcionDesplegable.gd
 SelectorResolucion.gd::GDScript::-1::1716323964::0::1::::<>Control<>::
 SelectorResolucion.tscn::PackedScene::8586293368285849560::1715158536::0::1::::<><>::res://interfaces/Recursos Interfaces/SelectorResolucion.gd
-::res://levels/::1716375176
-level2.tscn::PackedScene::4917150001335056827::1716375176::0::1::::<><>::res://levels/main.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://dr8sp2jykppjm::::res://levels/parallax_background.tscn
-main.gd::GDScript::-1::1716362259::0::1::::<>Node<>::
-main.tscn::PackedScene::902654487916384161::1716375175::0::1::::<><>::res://levels/main.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://h7oea02rvr0o::::res://interfaces/PuaseUI.tscn<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://dr8sp2jykppjm::::res://levels/parallax_background.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png
+::res://levels/::1716629839
+level2.tscn::PackedScene::4917150001335056827::1716629187::0::1::::<><>::res://levels/main.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://dr8sp2jykppjm::::res://levels/parallax_background.tscn
+main.gd::GDScript::-1::1716629972::0::1::::<>Node<>::
+main.tscn::PackedScene::902654487916384161::1716629186::0::1::::<><>::res://levels/main.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://h7oea02rvr0o::::res://interfaces/PuaseUI.tscn<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://dr8sp2jykppjm::::res://levels/parallax_background.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png
 obstacles.tscn::PackedScene::-1::1716320484::0::1::::<><>::
-parallax_background.tscn::PackedScene::8421717984726310482::1716375176::0::1::::<><>::uid://rikf6t40y4fn::::res://art/extendedEnemies/Enemy sprites/bee.png<>uid://cb5ynkfrhslcn::::res://art/extendedEnemies/Enemy sprites/bat.png<>uid://by737pmpef3lh::::res://art/extendedEnemies/Enemy sprites/fly.png
+parallax_background.tscn::PackedScene::8421717984726310482::1716629187::0::1::::<><>::uid://rikf6t40y4fn::::res://art/extendedEnemies/Enemy sprites/bee.png<>uid://cb5ynkfrhslcn::::res://art/extendedEnemies/Enemy sprites/bat.png<>uid://by737pmpef3lh::::res://art/extendedEnemies/Enemy sprites/fly.png

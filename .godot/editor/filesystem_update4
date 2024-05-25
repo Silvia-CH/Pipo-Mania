@@ -1,7 +1,7 @@
+res://levels/main.tscn
 res://interfaces/LoginUI.tscn
 res://interfaces/HudUI.tscn
 res://interfaces/MainUI.tscn
-res://levels/main.tscn
 res://interfaces/PuaseUI.tscn
 res://levels/level2.tscn
 res://actors/player.tscn
