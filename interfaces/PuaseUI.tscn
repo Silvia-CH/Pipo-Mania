@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://lb8c46q3d5yk"]
+[gd_scene load_steps=5 format=3 uid="uid://h7oea02rvr0o"]
 
 [ext_resource type="Script" path="res://interfaces/PuaseUI.gd" id="1_4thj4"]
 [ext_resource type="PackedScene" uid="uid://b12dofwssxsuf" path="res://interfaces/Recursos Interfaces/OpcionDesplegable.tscn" id="2_2es7m"]
-[ext_resource type="PackedScene" uid="uid://lggl0qkuqk2g" path="res://interfaces/LoginUI.tscn" id="2_lcgwd"]
+[ext_resource type="PackedScene" uid="uid://dhr64ymlkva8n" path="res://interfaces/LoginUI.tscn" id="2_lcgwd"]
 [ext_resource type="PackedScene" uid="uid://duli8548ijb2w" path="res://interfaces/Recursos Interfaces/SelectorResolucion.tscn" id="3_40p3c"]
 
 [node name="PuaseUi" type="CanvasLayer"]

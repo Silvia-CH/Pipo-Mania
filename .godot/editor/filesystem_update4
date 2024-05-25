@@ -1,6 +1,8 @@
-res://main.tscn
-res://player.tscn
-res://hud.tscn
-res://level2.tscn
-res://obstacles.tscn
-res://parallax_background.tscn
+res://interfaces/LoginUI.tscn
+res://interfaces/HudUI.tscn
+res://interfaces/MainUI.tscn
+res://levels/main.tscn
+res://interfaces/PuaseUI.tscn
+res://levels/level2.tscn
+res://actors/player.tscn
+res://levels/parallax_background.tscn

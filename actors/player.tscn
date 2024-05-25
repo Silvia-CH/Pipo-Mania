@@ -1,0 +1,146 @@
+[gd_scene load_steps=8 format=3 uid="uid://42cwtdufmbc"]
+
+[ext_resource type="Texture2D" uid="uid://bhh7000hh2i3" path="res://art/extendedEnemies/player_sprites/beige/alienBeige.png" id="1_7mwmo"]
+[ext_resource type="Texture2D" uid="uid://b7yga3m5wvfnv" path="res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png" id="2_1ofwq"]
+[ext_resource type="Texture2D" uid="uid://c1hgpdtswfs0m" path="res://art/extendedEnemies/player_sprites/beige/alienBeige_walk1.png" id="2_o6c11"]
+[ext_resource type="Texture2D" uid="uid://ftugm6wngb0b" path="res://art/extendedEnemies/player_sprites/beige/alienBeige_walk2.png" id="3_1hsyn"]
+
+[sub_resource type="GDScript" id="GDScript_bx58s"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const DASH_SPEED = 400.0
+const JUMP_VELOCITY = -380.0
+
+var dash_direction = Vector2(1,0)
+var can_move = true
+
+var powers = []
+
+var is_dashing = false
+var can_dash = false
+
+var is_double_jumping = false
+var can_double_jump = false
+var jump_count = 0
+
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+func start():
+	$AnimatedSprite2D.animation = \"idle\"
+	
+func _physics_process(delta):
+	# Get the input direction and handle the movement/deceleration.
+	# As good practice, you should replace UI actions with custom gameplay actions.
+	var direction = Input.get_axis(\"ui_left\", \"ui_right\")
+	if can_move:
+		# Handle dash
+		dash()
+		if not is_dashing:
+			# Add the gravity.
+			if not is_on_floor():
+				velocity.y += gravity * delta
+				$AnimatedSprite2D.flip_h = velocity.x < 0
+			# Handle jump.
+			if Input.is_action_just_pressed(\"ui_accept\") and jump_count >= 0:
+				jump_count -= 1
+				velocity.y = JUMP_VELOCITY
+				#print(\"jump\", jump_count)
+					
+			if is_on_floor():
+				if powers.find(\"jump\") != -1:
+					jump_count = 1
+				else: 
+					jump_count = 0
+				#print(\"floor\", jump_count)
+				
+			if direction:
+				velocity.x = direction * SPEED
+			else:
+				velocity.x = move_toward(velocity.x, 0, SPEED)
+				
+			if velocity.length() > 0:
+				$AnimatedSprite2D.animation = \"walk\"
+				$AnimatedSprite2D.play()
+				$AnimatedSprite2D.flip_h = velocity.x < 0
+			else:
+				$AnimatedSprite2D.animation = \"idle\"
+				$AnimatedSprite2D.play()
+				
+			
+		move_and_slide()
+		
+func dash():
+	if powers.find(\"dash\") != -1:
+		if is_on_floor():
+			can_dash = true
+			
+		if Input.is_action_pressed(\"ui_left\"):
+			dash_direction = Vector2(-1,0)
+		if Input.is_action_pressed(\"ui_right\"):
+			dash_direction = Vector2(1,0)
+			
+		if Input.is_action_just_pressed(\"dash\") and can_dash:
+			velocity = dash_direction.normalized() * DASH_SPEED
+			can_dash = false
+			is_dashing = true
+			await get_tree().create_timer(0.1).timeout
+			is_dashing = false
+			
+
+func _on_canvas_layer_commands_changed(text):
+	powers = text.split(\",\")
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jkujg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7mwmo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1ofwq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o6c11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1hsyn")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prdh5"]
+size = Vector2(67.9167, 97.9167)
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(100, 100)
+scale = Vector2(3, 3)
+collision_mask = 2
+script = SubResource("GDScript_bx58s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.8, 0.8)
+sprite_frames = SubResource("SpriteFrames_jkujg")
+animation = &"idle"
+frame_progress = 0.0406263
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.500008, -0.5)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_prdh5")
