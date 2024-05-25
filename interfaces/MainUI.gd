@@ -9,17 +9,13 @@ extends Control
 func _on_button_button_down():
 	get_tree().change_scene_to_packed(partida_precargada)
 
-
 func _on_button_2_button_down():
 	$MarginContainer.visible=false
 	$PuaseUi.set_process(true)
 	$PuaseUi.visible=true
-	
-
 
 func _on_button_3_button_down():
 	get_tree().quit()
-
 
 func _on_puase_ui_salir_menu_opciones():
 	$MarginContainer.visible=true
