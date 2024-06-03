@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwvqv56tts8rq"]
+
+[ext_resource type="Texture2D" uid="uid://d2afx5hy1ljvb" path="res://interfaces/fondoNegro.jpg" id="1_fql7g"]
+
+[node name="AccountUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContenedorPadre" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ContenedorPadre"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="FondoNegro" type="Sprite2D" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
+position = Vector2(717, 438)
+scale = Vector2(0.809172, 0.842105)
+texture = ExtResource("1_fql7g")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="Salir" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "X"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(400, 600)
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/VBoxContainer"]
+layout_mode = 2
+text = "gdsssssssssssssssss"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
