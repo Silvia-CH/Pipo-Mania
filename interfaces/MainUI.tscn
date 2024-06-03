@@ -45,7 +45,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("SystemFont_m57sw")
 theme_override_font_sizes/font_size = 60
-text = "PIPO JUEGO"
+text = "PIPO-MANÍA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -96,3 +96,4 @@ visible = false
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_button_down"]
+[connection signal="salir_menu_opciones" from="PuaseUi" to="." method="_on_puase_ui_salir_menu_opciones"]

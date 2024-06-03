@@ -15,12 +15,19 @@ func _process(_delta):
 
 func _input(event):
 	if event is InputEventKey and event.pressed:
-		if event.keycode == KEY_E and is_paused:
+		if Input.is_action_just_pressed("enter") and is_paused:
+			$Show.text = $TextEdit.text
+			commands_changed.emit($TextEdit.text)
 			$TextEdit.hide()
 			$ColorRect.hide()
 			unpause.emit()
 			is_paused = false
-		elif event.keycode == KEY_E and not is_paused:
+		elif (Input.is_action_just_pressed("pause") and is_paused):
+			$TextEdit.hide()
+			$ColorRect.hide()
+			unpause.emit()
+			is_paused = false
+		elif Input.is_action_just_pressed("pause") and not is_paused:
 			$TextEdit.show()
 			$ColorRect.show()
 			$TextEdit.grab_focus()

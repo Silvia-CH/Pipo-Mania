@@ -1,8 +1,9 @@
-res://levels/main.tscn
+res://levels/level3.tscn
 res://interfaces/LoginUI.tscn
-res://interfaces/HudUI.tscn
 res://interfaces/MainUI.tscn
-res://interfaces/PuaseUI.tscn
-res://levels/level2.tscn
 res://actors/player.tscn
-res://levels/parallax_background.tscn
+res://levels/PB_blue-sky.tscn
+res://levels/level1.tscn
+res://levels/level2.tscn
+res://interfaces/HudUI.tscn
+res://levels/PB_castle-sky.tscn
