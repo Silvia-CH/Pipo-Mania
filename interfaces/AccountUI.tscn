@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dwvqv56tts8rq"]
+[gd_scene load_steps=2 format=3 uid="uid://dwvqv56tts8rq"]
+
+[ext_resource type="Script" path="res://interfaces/AccountUI.gd" id="1_pukhi"]
 
 [node name="AccountUi" type="Control"]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_pukhi")
 
 [node name="ContenedorPadre" type="Control" parent="."]
 layout_mode = 1
@@ -46,220 +49,255 @@ custom_minimum_size = Vector2(400, 600)
 layout_mode = 2
 tab_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Cuenta" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta"]
 layout_mode = 2
 alignment = 1
 
-[node name="ContenedorUI" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="ContenedorUI" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer"]
 layout_mode = 2
 
-[node name="LoginUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI"]
-custom_minimum_size = Vector2(0, 450)
-layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-
-[node name="lblInicioSesion" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer"]
-layout_mode = 2
-text = "Inicio de sesion"
-horizontal_alignment = 1
-
-[node name="HBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="labelEmail" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Introduzca su Email:"
-
-[node name="Email" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-placeholder_text = "Email:"
-
-[node name="labelPasswd" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Introduzca su Contraseña:"
-
-[node name="Passwd" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-placeholder_text = "Contraseña"
-secret = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="Inicio Sesion" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-text = "Iniciar sesión"
-
-[node name="RegisterUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI"]
+[node name="LoginUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI"]
 visible = false
 custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 30
 
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer"]
+[node name="lblInicioSesion" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer"]
 layout_mode = 2
-text = "Registro"
+text = "Inicio de sesion"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer"]
+[node name="HBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="labelEmail" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+[node name="labelEmail" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Introduzca su Email:"
 
-[node name="Email" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+[node name="Email" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 placeholder_text = "Email:"
 
-[node name="labelPasswd" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+[node name="labelPasswd" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Introduzca su Contraseña:"
 
-[node name="Passwd" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+[node name="Passwd" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 placeholder_text = "Contraseña"
 secret = true
 
-[node name="labelPasswd2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Inicio Sesion" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "Iniciar sesión"
+
+[node name="RegisterUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI"]
+custom_minimum_size = Vector2(0, 450)
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer"]
+layout_mode = 2
+text = "Registro"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="labelEmail" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Introduzca su Email:"
+
+[node name="Email" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+placeholder_text = "Email:"
+
+[node name="labelPasswd" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Introduzca su Contraseña:"
+
+[node name="Passwd" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(200, 35)
+layout_mode = 2
+placeholder_text = "Contraseña"
+secret = true
+
+[node name="labelPasswd2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Repita la Contraseña:"
 
-[node name="Passwd2" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
+[node name="Passwd2" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(200, 35)
 layout_mode = 2
 placeholder_text = "Repita la Contraseña"
 secret = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Registro" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer"]
+[node name="Registro" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "Registrarse"
 
-[node name="RegisteredUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI"]
+[node name="RegisteredUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI"]
 visible = false
 custom_minimum_size = Vector2(0, 450)
 layout_mode = 2
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_right = 100
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI"]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Bienvenid@"
 
-[node name="ApodoPRD" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/HBoxContainer"]
+[node name="ApodoPRD" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Apodo" type="TextEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer"]
+[node name="Apodo" type="TextEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 placeholder_text = "Apodo"
 
-[node name="Rename" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer"]
+[node name="Rename" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Cambiar Apodo"
 
-[node name="Logout" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer"]
+[node name="Logout" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer"]
 layout_mode = 2
 text = "Cerrar Sesion
 "
 
-[node name="Mensaje" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI"]
+[node name="MensajeAviso" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI"]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="Alternador" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI"]
+[node name="Alternador" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/Alternador"]
+[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/Alternador"]
 layout_mode = 2
 text = "¿Ya tienes cuenta? "
 
-[node name="Rotar" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/ContenedorUI/Alternador"]
+[node name="Rotar" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/Alternador"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 text = "Inicia Sesion"
 
-[node name="HSplitContainer" type="HSplitContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="Espaciador" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+alignment = 1
 
-[node name="TabContainer" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer"]
+[node name="Clasificiacion" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Clasificación" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/TabContainer"]
+[node name="Global" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion"]
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/TabContainer/Clasificación"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global"]
 custom_minimum_size = Vector2(500, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 40
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/TabContainer/Clasificación/VBoxContainer"]
+[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 text = "hfdhdfhdfhdfhdfhdf"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/TabContainer/Clasificación/VBoxContainer"]
+[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
 text = "gsdgsdgsdgsdgsd"
+horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/TabContainer/Clasificación/VBoxContainer"]
+[node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label4" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/TabContainer/Clasificación/VBoxContainer"]
+[node name="Label4" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label5" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/HBoxContainer/TabContainer/Clasificación/VBoxContainer"]
+[node name="Label5" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
+[node name="Personal" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion"]
+visible = false
+custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Personal"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Personal/VBoxContainer"]
+layout_mode = 2
+text = "aaaaaaaaaaaaaaaaa"
+
+[connection signal="block_login" from="." to="." method="_on_block_login"]
+[connection signal="load_data" from="." to="." method="_on_load_data"]
+[connection signal="unblock_login" from="." to="." method="_on_unblock_login"]
+[connection signal="update" from="." to="." method="_on_update"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer/Inicio Sesion" to="." method="_on_inicio_sesion_pressed"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer/Registro" to="." method="_on_registro_pressed"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer/Rename" to="." method="_on_rename_pressed"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/Logout" to="." method="_on_logout_pressed"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/Alternador/Rotar" to="." method="_on_rotar_pressed"]
