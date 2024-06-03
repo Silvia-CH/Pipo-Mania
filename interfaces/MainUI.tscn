@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://interfaces/MainUI.gd" id="1_ynoir"]
 [ext_resource type="PackedScene" uid="uid://lb8c46q3d5yk" path="res://interfaces/PuaseUI.tscn" id="2_6jv70"]
+[ext_resource type="PackedScene" uid="uid://dwvqv56tts8rq" path="res://interfaces/AccountUI.tscn" id="3_avb2w"]
 
 [sub_resource type="SystemFont" id="SystemFont_m57sw"]
 font_names = PackedStringArray("Monocraft")
@@ -63,17 +64,27 @@ alignment = 1
 [node name="Espaciador" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Empezar" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(150, 100)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_4k1i4")
 theme_override_font_sizes/font_size = 30
 text = "Jugar"
 
+[node name="Espaciador4" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Cuenta" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 100)
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_4k1i4")
+theme_override_font_sizes/font_size = 30
+text = "Cuenta"
+
 [node name="Espaciador2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Opciones" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 100)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_4k1i4")
@@ -83,7 +94,7 @@ text = "Opciones"
 [node name="Espaciador3" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Salir" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(450, 100)
 layout_mode = 2
 theme_override_fonts/font = SubResource("SystemFont_4k1i4")
@@ -93,7 +104,13 @@ text = "Salir al escritorio"
 [node name="PuaseUi" parent="." instance=ExtResource("2_6jv70")]
 visible = false
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_button_down"]
-[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button3" to="." method="_on_button_3_button_down"]
+[node name="AccountUi" parent="." instance=ExtResource("3_avb2w")]
+visible = false
+layout_mode = 1
+
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Empezar" to="." method="_on_empezar_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Cuenta" to="." method="_on_cuenta_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Opciones" to="." method="_on_opciones_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Salir" to="." method="_on_salir_button_down"]
 [connection signal="salir_menu_opciones" from="PuaseUi" to="." method="_on_puase_ui_salir_menu_opciones"]
+[connection signal="salir_menu_cuenta" from="AccountUi" to="." method="_on_account_ui_salir_menu_cuenta"]

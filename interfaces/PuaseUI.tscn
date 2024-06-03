@@ -42,11 +42,11 @@ text = "X"
 [node name="Ventanas" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 600)
 layout_mode = 2
-current_tab = 1
+tab_alignment = 1
 
 [node name="Opciones" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
-visible = false
 layout_mode = 2
+theme_override_constants/separation = 120
 
 [node name="MarginContainer" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones"]
 layout_mode = 2
@@ -56,8 +56,9 @@ theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-theme_override_constants/separation = 200
+theme_override_constants/separation = 100
 
 [node name="Tipo_Ventana" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer/VBoxContainer" instance=ExtResource("2_2es7m")]
 layout_mode = 2
@@ -65,155 +66,5 @@ layout_mode = 2
 [node name="Resolucion" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer/VBoxContainer" instance=ExtResource("3_40p3c")]
 layout_mode = 2
 
-[node name="Cuenta" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
-layout_mode = 2
-alignment = 1
-
-[node name="ContenedorUI" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta"]
-layout_mode = 2
-
-[node name="LoginUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI"]
-visible = false
-custom_minimum_size = Vector2(0, 450)
-layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-
-[node name="lblInicioSesion" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer"]
-layout_mode = 2
-text = "Inicio de sesion"
-horizontal_alignment = 1
-
-[node name="HBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="labelEmail" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Introduzca su Email:"
-
-[node name="Email" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-placeholder_text = "Email:"
-
-[node name="labelPasswd" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Introduzca su Contraseña:"
-
-[node name="Passwd" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-placeholder_text = "Contraseña"
-secret = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="Inicio Sesion" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-text = "Iniciar sesión"
-
-[node name="RegisterUI" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI"]
-custom_minimum_size = Vector2(0, 450)
-layout_mode = 2
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_right = 100
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 30
-
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer"]
-layout_mode = 2
-text = "Registro"
-horizontal_alignment = 1
-
-[node name="HBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="labelEmail" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Introduzca su Email:"
-
-[node name="Email" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-placeholder_text = "Email:"
-
-[node name="labelPasswd" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Introduzca su Contraseña:"
-
-[node name="Passwd" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-placeholder_text = "Contraseña"
-secret = true
-
-[node name="labelPasswd2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
-layout_mode = 2
-text = "Repita la Contraseña:"
-
-[node name="Passwd2" type="LineEdit" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer2"]
-custom_minimum_size = Vector2(200, 35)
-layout_mode = 2
-placeholder_text = "Repita la Contraseña"
-secret = true
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-alignment = 1
-
-[node name="Registro" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(50, 50)
-layout_mode = 2
-text = "Registrarse"
-
-[node name="Mensaje" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI"]
-layout_mode = 2
-horizontal_alignment = 1
-
-[node name="Alternador" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI"]
-layout_mode = 2
-alignment = 1
-
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/Alternador"]
-layout_mode = 2
-text = "¿Ya tienes cuenta? "
-
-[node name="Rotar" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/Alternador"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Inicia Sesion"
-
-[node name="Clasificación" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
-visible = false
-layout_mode = 2
-
-[node name="Control" type="Control" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Clasificación"]
-layout_mode = 2
-
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir" to="." method="_on_salir_pressed"]
 [connection signal="tab_clicked" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas" to="." method="_on_ventanas_tab_clicked"]
-[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/LoginUI/VBoxContainer/HBoxContainer/Inicio Sesion" to="." method="_on_inicio_sesion_pressed"]
-[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/RegisterUI/VBoxContainer/HBoxContainer/Registro" to="." method="_on_registro_pressed"]
-[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Cuenta/ContenedorUI/Alternador/Rotar" to="." method="_on_rotar_pressed"]
