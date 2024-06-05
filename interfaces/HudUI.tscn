@@ -1,0 +1,91 @@
+[gd_scene load_steps=4 format=3 uid="uid://cm24fa4i5n83u"]
+
+[ext_resource type="Script" path="res://interfaces/HudUI.gd" id="1_mtsca"]
+
+[sub_resource type="InputEventAction" id="InputEventAction_14yto"]
+action = &"enter"
+
+[sub_resource type="Shortcut" id="Shortcut_acvw6"]
+events = [SubResource("InputEventAction_14yto")]
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_mtsca")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.168627, 0.168627, 0.168627, 0.32549)
+
+[node name="Show" type="TextEdit" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.0755556
+offset_left = 17.0
+offset_top = 19.0
+offset_right = -21.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 0
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+
+[node name="TextEdit" type="LineEdit" parent="."]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -160.0
+offset_right = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 3
+placeholder_text = "Commands..."
+max_length = 30
+clear_button_enabled = true
+drag_and_drop_selection_enabled = false
+caret_blink_interval = 0.1
+
+[node name="Enter" type="Button" parent="TextEdit"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -72.0
+offset_bottom = 40.0
+grow_horizontal = 0
+shortcut = SubResource("Shortcut_acvw6")
+text = "Enter
+"
+
+[node name="Clear" type="Button" parent="TextEdit"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Clear"
+
+[connection signal="pressed" from="TextEdit/Enter" to="." method="_on_enter_pressed"]
+[connection signal="pressed" from="TextEdit/Clear" to="." method="_on_clear_pressed"]

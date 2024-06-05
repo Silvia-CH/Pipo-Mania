@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://borqouf70onjb"]
+[gd_scene load_steps=5 format=3 uid="uid://cd4wwl6dhugii"]
 
 [ext_resource type="Script" path="res://interfaces/MainUI.gd" id="1_ynoir"]
 [ext_resource type="PackedScene" uid="uid://lb8c46q3d5yk" path="res://interfaces/PuaseUI.tscn" id="2_6jv70"]
@@ -46,7 +46,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = SubResource("SystemFont_m57sw")
 theme_override_font_sizes/font_size = 60
-text = "PIPO JUEGO"
+text = "PIPO-MANÍA"
 horizontal_alignment = 1
 vertical_alignment = 1
 
