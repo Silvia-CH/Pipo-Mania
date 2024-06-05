@@ -1,11 +1,22 @@
 extends CanvasLayer
 
+signal pause
+signal unpause
 signal salir_menu_opciones
+signal volver_menu_principal
+var is_paused = false
 
-func _ready():
-	pass
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_ESCAPE and not is_paused:
+			pause.emit()
+			is_paused = true
+			$"../PuaseUi".visible = true
+		elif event.keycode == KEY_ESCAPE and is_paused:
+			unpause.emit()
+			is_paused = false
+			$"../PuaseUi".visible = false
 
-	
-func _on_salir_pressed():
-	salir_menu_opciones.emit()
-	set_process(false)
+func _on_volver_al_menu_pressed():
+	unpause.emit()
+	volver_menu_principal.emit()

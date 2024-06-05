@@ -904,6 +904,9 @@ libraries = {
 }
 autoplay = "movement"
 
+[connection signal="pause" from="PuaseUi" to="." method="_on_canvas_layer_pause"]
+[connection signal="unpause" from="PuaseUi" to="." method="_on_canvas_layer_unpause"]
+[connection signal="volver_menu_principal" from="PuaseUi" to="." method="_on_puase_ui_volver_menu_principal"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D3" to="." method="_on_visible_on_screen_notifier_2d_2_screen_exited"]
 [connection signal="commands_changed" from="CanvasLayer" to="Player" method="_on_canvas_layer_commands_changed"]
 [connection signal="pause" from="CanvasLayer" to="." method="_on_canvas_layer_pause"]

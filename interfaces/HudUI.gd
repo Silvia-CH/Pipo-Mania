@@ -34,15 +34,7 @@ func _input(event):
 			pause.emit()
 			is_paused = true
 			$TextEdit.text = ""
-		elif event.keycode == KEY_ESCAPE and not is_paused:
-			pause.emit()
-			is_paused = true
-			$"../PuaseUi".visible = true
-		elif event.keycode == KEY_ESCAPE and is_paused:
-			unpause.emit()
-			is_paused = false
-			$"../PuaseUi".visible = false
-			
+
 func _on_enter_pressed():
 	$Show.text = $TextEdit.text
 	commands_changed.emit($TextEdit.text)
