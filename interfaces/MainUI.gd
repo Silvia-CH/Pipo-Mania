@@ -11,19 +11,19 @@ func _on_cuenta_button_down():
 	$MarginContainer.visible=false
 	$AccountUi.set_process(true)
 	$AccountUi.visible=true
-	
+
 func _on_account_ui_salir_menu_cuenta():
 	$MarginContainer.visible=true
 	$AccountUi.visible=false
 
 func _on_opciones_button_down():
 	$MarginContainer.visible=false
-	$PuaseUi.set_process(true)
-	$PuaseUi.visible=true
+	$PuaseUiALT.set_process(true)
+	$PuaseUiALT.visible=true
 
-func _on_puase_ui_salir_menu_opciones():
+func _on_puase_ui_alt_salir_menu_opciones():
 	$MarginContainer.visible=true
-	$PuaseUi.visible=false
+	$PuaseUiALT.visible=false
 
 func _on_salir_button_down():
 	get_tree().quit()
