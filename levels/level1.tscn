@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://m4it8gsgr25r"]
+[gd_scene load_steps=21 format=3 uid="uid://m4it8gsgr25r"]
 
 [ext_resource type="Script" path="res://levels/level1.gd" id="1_7bm0x"]
 [ext_resource type="PackedScene" uid="uid://cm24fa4i5n83u" path="res://interfaces/HudUI.tscn" id="1_ealtx"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ctehrdujrlly2" path="res://art/extendedTileset/Vector/part1.svg" id="5_fjjuu"]
 [ext_resource type="Texture2D" uid="uid://pfwpxdsm55n7" path="res://art/buildings/Tiles/windowOpen.png" id="6_ijvav"]
 [ext_resource type="Texture2D" uid="uid://byjpnl1o3a0au" path="res://art/kenney_platformer-art-deluxe/Base pack/Vector/tiles.svg" id="6_sorfr"]
+[ext_resource type="Texture2D" uid="uid://dfuhvufai4c80" path="res://art/buildings/Vector/sheet.svg" id="7_kie1p"]
 [ext_resource type="Texture2D" uid="uid://dnsf0g856jt3e" path="res://art/extendedTileset/PNG Grass/grassHalf.png" id="8_s2sae"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r80ca"]
@@ -699,6 +700,14 @@ texture_region_size = Vector2i(70, 70)
 17:11/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 17:11/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxi6w"]
+texture = ExtResource("7_kie1p")
+separation = Vector2i(10, 10)
+texture_region_size = Vector2i(70, 70)
+3:5/0 = 0
+3:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:5/0/physics_layer_0/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fu14m"]
 texture = ExtResource("6_sorfr")
 margins = Vector2i(0, 106)
@@ -731,6 +740,7 @@ tile_size = Vector2i(70, 70)
 physics_layer_0/collision_layer = 2
 physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_r80ca")
+sources/1 = SubResource("TileSetAtlasSource_yxi6w")
 sources/3 = SubResource("TileSetAtlasSource_fu14m")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsog2"]
@@ -836,6 +846,13 @@ ok_button_text = "Reintentar"
 dialog_text = "womp womp"
 cancel_button_text = "Exit"
 
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(167, 165)
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_kdcar")]
+layer = -1
+scroll_ignore_camera_zoom = true
+
 [node name="TileMap" type="TileMap" parent="."]
 z_index = 2
 tile_set = SubResource("TileSet_7fjar")
@@ -854,13 +871,6 @@ texture = ExtResource("6_ijvav")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door"]
 position = Vector2(-0.522461, 11.875)
 shape = SubResource("RectangleShape2D_gsog2")
-
-[node name="StartPosition" type="Marker2D" parent="."]
-position = Vector2(167, 165)
-
-[node name="ParallaxBackground" parent="." instance=ExtResource("4_kdcar")]
-layer = -1
-scroll_ignore_camera_zoom = true
 
 [node name="Plataforma" type="CharacterBody2D" parent="."]
 position = Vector2(-11.5, -9.5)

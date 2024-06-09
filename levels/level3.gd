@@ -16,14 +16,9 @@ func _on_confirmation_dialog_canceled():
 
 
 func _on_canvas_layer_pause():
-	
 	$Player.can_move = false
 	$Player/AnimatedSprite2D.stop()
 	
 func _on_canvas_layer_unpause():
 	$Player.can_move = true
 	$Player/AnimatedSprite2D.play()
-
-
-func _on_door_body_entered(_body):
-	get_tree().change_scene_to_file("res://levels/level3.tscn")

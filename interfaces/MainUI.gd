@@ -1,9 +1,6 @@
 extends Control
 
-@onready var button_1 = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button
-@onready var button_2 = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button2
-@onready var button_3 = $MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Button3
-@export var partida_precargada = preload("res://levels/level1.tscn")
+@export var partida_precargada = preload("res://interfaces/SkinPickerUI.tscn")
 @export var menu_Opciones_precargada = preload("res://interfaces/PuaseUI.tscn")
 @export var menu_Cuenta_precargada = preload("res://interfaces/AccountUI.tscn")
 

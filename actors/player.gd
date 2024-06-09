@@ -1,14 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const DASH_SPEED = 500.0
-const JUMP_VELOCITY = -380.0
+const DASH_SPEED = 600.0
+const JUMP_VELOCITY = -390.0
 
+var speed = 300.0
 var dash_direction = Vector2(1,0)
 var can_move = true
 
 var powers = []
+var characterSprite = "Beige"
 
 var is_dashing = false
 var can_dash = false
@@ -21,8 +22,18 @@ var jump_count = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func start():
+func _ready():
 	$AnimatedSprite2D.animation = "idle"
+	var config = ConfigFile.new()
+	var data = config.load("res://actors/player.cfg")
+	print("a")
+
+	if data != OK:
+		print("err")
+		return
+
+	for player in config.get_sections():
+		characterSprite = config.get_value(player, "player_skin")
 	
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -31,6 +42,7 @@ func _physics_process(delta):
 	if can_move:
 		# Handle dash
 		dash()
+		double_velocity()
 		if not is_dashing:
 			# Add the gravity.
 			if not is_on_floor():
@@ -38,12 +50,20 @@ func _physics_process(delta):
 				$AnimatedSprite2D.flip_h = velocity.x < 0
 					
 			if is_on_floor():
-				if powers.find("jump") != -1:
+				if powers.find("pujm") != -1:
 					jump_count = 1
 				else: 
 					jump_count = 0
+					
+				if velocity.length() > 0:
+					$AnimatedSprite2D.animation = "walk" + characterSprite
+					$AnimatedSprite2D.play()
+					$AnimatedSprite2D.flip_h = velocity.x < 0
+				else:
+					$AnimatedSprite2D.animation = "idle" + characterSprite
+					$AnimatedSprite2D.play()
 			else:
-				$AnimatedSprite2D.animation = "jump"
+				$AnimatedSprite2D.animation = "jump" + characterSprite
 				$AnimatedSprite2D.play()
 				
 			# Handle jump.
@@ -52,23 +72,16 @@ func _physics_process(delta):
 				velocity.y = JUMP_VELOCITY
 				
 			if direction:
-				velocity.x = direction * SPEED
+				velocity.x = direction * speed
 			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.x = move_toward(velocity.x, 0, speed)
 				
-			if velocity.length() > 0 and is_on_floor():
-				$AnimatedSprite2D.animation = "walk"
-				$AnimatedSprite2D.play()
-				$AnimatedSprite2D.flip_h = velocity.x < 0
-			else:
-				$AnimatedSprite2D.animation = "idle"
-				$AnimatedSprite2D.play()
 				
 			
 		move_and_slide()
 		
 func dash():
-	if powers.find("dash") != -1:
+	if powers.find("sadh") != -1:
 		if is_on_floor():
 			can_dash = true
 			
@@ -84,6 +97,13 @@ func dash():
 			await get_tree().create_timer(0.1).timeout
 			is_dashing = false
 			
-
+func double_velocity():
+	if powers.find("clove") != -1:
+		speed = 600.0
+	else:
+		speed = 300.0
 func _on_canvas_layer_commands_changed(text):
-	powers = text.split(",")
+	#dash -> sadh
+	#jump -> pujm
+	#veloc -> clove
+	powers = text.split(" ")

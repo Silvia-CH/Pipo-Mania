@@ -38,9 +38,7 @@ func _input(event):
 func _on_enter_pressed():
 	$Show.text = $TextEdit.text
 	commands_changed.emit($TextEdit.text)
-
-
-func _on_clear_pressed():
-	$Show.text = "" 
-	$TextEdit.text = ""
-	
+	$TextEdit.hide()
+	$ColorRect.hide()
+	unpause.emit()
+	is_paused = false

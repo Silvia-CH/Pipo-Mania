@@ -1,0 +1,259 @@
+[gd_scene load_steps=17 format=3 uid="uid://dyxfbin681cwl"]
+
+[ext_resource type="Script" path="res://interfaces/SkinPickerUI.gd" id="1_dpsny"]
+[ext_resource type="Texture2D" uid="uid://bhh7000hh2i3" path="res://art/extendedEnemies/player_sprites/beige/alienBeige.png" id="1_feac0"]
+[ext_resource type="Texture2D" uid="uid://b7yga3m5wvfnv" path="res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png" id="2_3dsal"]
+[ext_resource type="Texture2D" uid="uid://demthuws1naer" path="res://art/extendedEnemies/player_sprites/blue/alienBlue.png" id="3_u3qvt"]
+[ext_resource type="Texture2D" uid="uid://cphhcyl0up8dc" path="res://art/extendedEnemies/player_sprites/blue/alienBlue_jump.png" id="4_1nipb"]
+[ext_resource type="ButtonGroup" uid="uid://b3ra5yws0w1fh" path="res://interfaces/skin_picker_button_group.tres" id="4_ewyeb"]
+[ext_resource type="Texture2D" uid="uid://f8vuycbq3upn" path="res://art/extendedEnemies/player_sprites/green/alienGreen.png" id="5_yomgh"]
+[ext_resource type="Texture2D" uid="uid://bbh0v0a0scfb4" path="res://art/extendedEnemies/player_sprites/green/alienGreen_jump.png" id="6_8wrgi"]
+[ext_resource type="Texture2D" uid="uid://cv2byeyt5ti6r" path="res://art/extendedEnemies/player_sprites/pink/alienPink.png" id="7_qf7on"]
+[ext_resource type="Texture2D" uid="uid://qs54dfs512vv" path="res://art/extendedEnemies/player_sprites/pink/alienPink_jump.png" id="8_b0pwo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6rrtg"]
+font_size = 80
+outline_size = 25
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 50
+shadow_color = Color(0, 0, 0, 0.301961)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hrga4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_feac0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3dsal")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_degb0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u3qvt")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1nipb")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uhxc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_yomgh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_8wrgi")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lple4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qf7on")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_b0pwo")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_hsw8i"]
+Button/font_sizes/font_size = 40
+
+[node name="Node" type="Node"]
+script = ExtResource("1_dpsny")
+btnGroup = ExtResource("4_ewyeb")
+
+[node name="Title" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -152.0
+offset_top = 160.0
+offset_right = 156.0
+offset_bottom = 270.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+text = "ESTILOS"
+label_settings = SubResource("LabelSettings_6rrtg")
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="WarningDialog" type="AcceptDialog" parent="."]
+title = "¡Alerta!"
+initial_position = 1
+size = Vector2i(221, 100)
+dialog_text = "No has seleccionado estilo"
+
+[node name="SaveDialog" type="ConfirmationDialog" parent="."]
+title = "¿Estás seguro?"
+initial_position = 2
+size = Vector2i(400, 120)
+ok_button_text = "Guardar"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -760.0
+offset_top = -116.0
+offset_right = 506.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.2, 1.2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Beige" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="BeigeSprite" type="AnimatedSprite2D" parent="HBoxContainer/Beige" groups=["sprites"]]
+position = Vector2(129, 103)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_hrga4")
+animation = &"idle"
+
+[node name="Beige" type="Button" parent="HBoxContainer/Beige"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -32.0
+offset_right = 90.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+toggle_mode = true
+button_group = ExtResource("4_ewyeb")
+text = "Beige"
+
+[node name="Azul" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="AzulSprite" type="AnimatedSprite2D" parent="HBoxContainer/Azul" groups=["sprites"]]
+position = Vector2(123, 103)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_degb0")
+animation = &"idle"
+
+[node name="Azul" type="Button" parent="HBoxContainer/Azul"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -90.0
+offset_top = -32.0
+offset_right = 90.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+toggle_mode = true
+button_group = ExtResource("4_ewyeb")
+text = "Azul"
+
+[node name="Verde" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="VerdeSprite" type="AnimatedSprite2D" parent="HBoxContainer/Verde" groups=["sprites"]]
+position = Vector2(125, 103)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_0uhxc")
+animation = &"idle"
+
+[node name="Verde" type="Button" parent="HBoxContainer/Verde"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 200.0
+offset_right = 215.0
+offset_bottom = 235.0
+toggle_mode = true
+button_group = ExtResource("4_ewyeb")
+text = "Verde"
+
+[node name="Rosa" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="RosaSprite" type="AnimatedSprite2D" parent="HBoxContainer/Rosa" groups=["sprites"]]
+position = Vector2(127, 103)
+scale = Vector2(1.7, 1.7)
+sprite_frames = SubResource("SpriteFrames_lple4")
+animation = &"idle"
+
+[node name="Rosa" type="Button" parent="HBoxContainer/Rosa"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 200.0
+offset_right = 215.0
+offset_bottom = 235.0
+toggle_mode = true
+button_group = ExtResource("4_ewyeb")
+text = "Rosa"
+
+[node name="Guardar" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = -180.0
+offset_right = 148.0
+offset_bottom = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_hsw8i")
+text = "Guardar"
+
+[connection signal="confirmed" from="SaveDialog" to="." method="_on_confirmation_dialog_confirmed"]
+[connection signal="pressed" from="Guardar" to="." method="_on_guardar_pressed"]

@@ -25,13 +25,14 @@ color = Color(0.168627, 0.168627, 0.168627, 0.32549)
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 0.0755556
-offset_left = 17.0
+offset_left = 25.0
 offset_top = 19.0
-offset_right = -21.0
+offset_right = -25.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
+size_flags_vertical = 3
 mouse_default_cursor_shape = 0
 editable = false
 context_menu_enabled = false
@@ -50,7 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 8.0
 offset_top = -160.0
-offset_right = -8.0
+offset_right = -116.0
 offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -67,25 +68,12 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -72.0
-offset_bottom = 40.0
+offset_right = 72.0
+offset_bottom = 144.0
 grow_horizontal = 0
+focus_mode = 0
 shortcut = SubResource("Shortcut_acvw6")
 text = "Enter
 "
 
-[node name="Clear" type="Button" parent="TextEdit"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -72.0
-offset_top = -40.0
-grow_horizontal = 0
-grow_vertical = 0
-text = "Clear"
-
 [connection signal="pressed" from="TextEdit/Enter" to="." method="_on_enter_pressed"]
-[connection signal="pressed" from="TextEdit/Clear" to="." method="_on_clear_pressed"]
