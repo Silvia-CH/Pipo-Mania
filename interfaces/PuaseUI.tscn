@@ -30,14 +30,14 @@ theme_override_constants/margin_bottom = 100
 [node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
 layout_mode = 2
 alignment = 2
 
-[node name="Volver al menu" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Salir" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
-text = "Volver al menu de inicio"
+text = "X"
 
 [node name="Ventanas" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(400, 600)
@@ -66,5 +66,4 @@ layout_mode = 2
 [node name="Resolucion" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer/VBoxContainer" instance=ExtResource("3_40p3c")]
 layout_mode = 2
 
-[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
-[connection signal="tab_clicked" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas" to="." method="_on_ventanas_tab_clicked"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir" to="." method="_on_salir_pressed"]

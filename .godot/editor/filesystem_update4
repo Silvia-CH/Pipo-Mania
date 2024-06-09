@@ -1,5 +1,6 @@
-res://interfaces/SkinPickerUI.gd
 res://interfaces/SkinPickerUI.tscn
+res://interfaces/SkinPickerUI.gd
+res://interfaces/skin_picker_button_group.tres
 res://interfaces/MainUI.tscn
 res://actors/player.tscn
 res://levels/PB_blue-sky.tscn
@@ -10,9 +11,7 @@ res://levels/PB_castle-sky.tscn
 res://interfaces/PuaseUI.tscn
 res://interfaces/HudUI.tscn
 res://interfaces/AccountUI.tscn
-res://interfaces/MainUI.gd
-res://interfaces/skin_picker_button_group.tres
-res://actors/player.gd
 res://levels/level1.gd
 res://levels/level2.gd
-res://interfaces/PuaseUI.gd
+res://levels/level3.gd
+res://interfaces/HudUI.gd

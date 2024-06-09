@@ -918,7 +918,7 @@ title = "HAS MUERTO"
 initial_position = 1
 size = Vector2i(300, 80)
 ok_button_text = "Reintentar"
-cancel_button_text = "Exit"
+cancel_button_text = "Salir a inicio"
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(144, 248)
@@ -960,6 +960,8 @@ libraries = {
 }
 autoplay = "movement"
 
+[connection signal="pause" from="PuaseUi" to="." method="_on_puase_ui_pause"]
+[connection signal="unpause" from="PuaseUi" to="." method="_on_puase_ui_unpause"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D3" to="." method="_on_visible_on_screen_notifier_2d_2_screen_exited"]
 [connection signal="commands_changed" from="CanvasLayer" to="Player" method="_on_canvas_layer_commands_changed"]
 [connection signal="pause" from="CanvasLayer" to="." method="_on_canvas_layer_pause"]

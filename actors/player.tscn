@@ -124,7 +124,7 @@ func _on_canvas_layer_commands_changed(text):
 	#dash -> sadh
 	#jump -> pujm
 	#veloc -> clove
-	powers = text.split(\" \")
+	powers = text
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jkujg"]

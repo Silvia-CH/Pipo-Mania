@@ -817,9 +817,11 @@ _data = {
 script = ExtResource("1_7bm0x")
 
 [node name="PuaseUi" parent="." instance=ExtResource("2_agm8u")]
+process_mode = 3
 visible = false
 
 [node name="Player" parent="." instance=ExtResource("3_csni7")]
+process_mode = 1
 z_index = 5
 position = Vector2(172, 230)
 scale = Vector2(1, 1)
@@ -835,7 +837,8 @@ limit_left = 0
 limit_bottom = 900
 limit_smoothed = true
 
-[node name="CanvasLayer" parent="." instance=ExtResource("1_ealtx")]
+[node name="Commands" parent="." instance=ExtResource("1_ealtx")]
+process_mode = 3
 layer = 3
 
 [node name="DeathDialog" type="ConfirmationDialog" parent="."]
@@ -844,7 +847,7 @@ initial_position = 1
 size = Vector2i(400, 120)
 ok_button_text = "Reintentar"
 dialog_text = "womp womp"
-cancel_button_text = "Exit"
+cancel_button_text = "Salir a inicio"
 
 [node name="StartPosition" type="Marker2D" parent="."]
 position = Vector2(167, 165)
@@ -873,6 +876,7 @@ position = Vector2(-0.522461, 11.875)
 shape = SubResource("RectangleShape2D_gsog2")
 
 [node name="Plataforma" type="CharacterBody2D" parent="."]
+process_mode = 1
 position = Vector2(-11.5, -9.5)
 collision_layer = 2
 collision_mask = 0
@@ -894,6 +898,7 @@ libraries = {
 autoplay = "movement"
 
 [node name="Plataforma2" type="CharacterBody2D" parent="."]
+process_mode = 1
 position = Vector2(134, -9.5)
 collision_layer = 2
 collision_mask = 0
@@ -914,13 +919,13 @@ libraries = {
 }
 autoplay = "movement"
 
-[connection signal="pause" from="PuaseUi" to="." method="_on_canvas_layer_pause"]
-[connection signal="unpause" from="PuaseUi" to="." method="_on_canvas_layer_unpause"]
+[connection signal="pause" from="PuaseUi" to="." method="_on_puase_ui_pause"]
+[connection signal="unpause" from="PuaseUi" to="." method="_on_puase_ui_unpause"]
 [connection signal="volver_menu_principal" from="PuaseUi" to="." method="_on_puase_ui_volver_menu_principal"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D3" to="." method="_on_visible_on_screen_notifier_2d_2_screen_exited"]
-[connection signal="commands_changed" from="CanvasLayer" to="Player" method="_on_canvas_layer_commands_changed"]
-[connection signal="pause" from="CanvasLayer" to="." method="_on_canvas_layer_pause"]
-[connection signal="unpause" from="CanvasLayer" to="." method="_on_canvas_layer_unpause"]
+[connection signal="commands_changed" from="Commands" to="Player" method="_on_canvas_layer_commands_changed"]
+[connection signal="pause" from="Commands" to="." method="_on_canvas_layer_pause"]
+[connection signal="unpause" from="Commands" to="." method="_on_canvas_layer_unpause"]
 [connection signal="canceled" from="DeathDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="DeathDialog" to="." method="_on_confirmation_dialog_confirmed"]
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
