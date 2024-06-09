@@ -1,5 +1,7 @@
 extends Node
 
+@export var siguiente = preload("res://levels/level2.tscn") 
+
 func _on_visible_on_screen_notifier_2d_2_screen_exited():
 	$DeathDialog.show()
 	$Player.can_move = false
@@ -16,7 +18,6 @@ func _on_confirmation_dialog_canceled():
 
 
 func _on_canvas_layer_pause():
-	
 	$Player.can_move = false
 	$Player/AnimatedSprite2D.stop()
 	
@@ -26,4 +27,4 @@ func _on_canvas_layer_unpause():
 
 
 func _on_door_body_entered(_body):
-	get_tree().change_scene_to_file("res://levels/level2.tscn")
+	get_tree().change_scene_to_packed(siguiente)

@@ -1,22 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://42cwtdufmbc"]
+[gd_scene load_steps=20 format=3 uid="uid://42cwtdufmbc"]
 
 [ext_resource type="Texture2D" uid="uid://bhh7000hh2i3" path="res://art/extendedEnemies/player_sprites/beige/alienBeige.png" id="1_7mwmo"]
+[ext_resource type="Texture2D" uid="uid://demthuws1naer" path="res://art/extendedEnemies/player_sprites/blue/alienBlue.png" id="1_10mfv"]
 [ext_resource type="Texture2D" uid="uid://b7yga3m5wvfnv" path="res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png" id="2_1ofwq"]
 [ext_resource type="Texture2D" uid="uid://c1hgpdtswfs0m" path="res://art/extendedEnemies/player_sprites/beige/alienBeige_walk1.png" id="2_o6c11"]
 [ext_resource type="Texture2D" uid="uid://ftugm6wngb0b" path="res://art/extendedEnemies/player_sprites/beige/alienBeige_walk2.png" id="3_1hsyn"]
+[ext_resource type="Texture2D" uid="uid://cv2byeyt5ti6r" path="res://art/extendedEnemies/player_sprites/pink/alienPink.png" id="3_c3r1l"]
+[ext_resource type="Texture2D" uid="uid://f8vuycbq3upn" path="res://art/extendedEnemies/player_sprites/green/alienGreen.png" id="3_wsw3l"]
+[ext_resource type="Texture2D" uid="uid://cphhcyl0up8dc" path="res://art/extendedEnemies/player_sprites/blue/alienBlue_jump.png" id="3_y7t47"]
+[ext_resource type="Texture2D" uid="uid://bmxg5ad8vfvfi" path="res://art/extendedEnemies/player_sprites/blue/alienBlue_walk2.png" id="5_2xqr8"]
+[ext_resource type="Texture2D" uid="uid://bbh0v0a0scfb4" path="res://art/extendedEnemies/player_sprites/green/alienGreen_jump.png" id="6_nm60p"]
+[ext_resource type="Texture2D" uid="uid://bvttiunnl88c3" path="res://art/extendedEnemies/player_sprites/blue/alienBlue_walk1.png" id="6_vv3wr"]
+[ext_resource type="Texture2D" uid="uid://qs54dfs512vv" path="res://art/extendedEnemies/player_sprites/pink/alienPink_jump.png" id="7_x60fd"]
+[ext_resource type="Texture2D" uid="uid://rr6vo75jjjim" path="res://art/extendedEnemies/player_sprites/green/alienGreen_walk1.png" id="11_elymp"]
+[ext_resource type="Texture2D" uid="uid://dwxgywqv8c5hp" path="res://art/extendedEnemies/player_sprites/green/alienGreen_walk2.png" id="12_bcwli"]
+[ext_resource type="Texture2D" uid="uid://c4bxx0ejgef1p" path="res://art/extendedEnemies/player_sprites/pink/alienPink_walk1.png" id="13_v7fkt"]
+[ext_resource type="Texture2D" uid="uid://dfxqnsp5e1p0m" path="res://art/extendedEnemies/player_sprites/pink/alienPink_walk2.png" id="14_ni3nr"]
 
 [sub_resource type="GDScript" id="GDScript_bx58s"]
 script/source = "extends CharacterBody2D
 
 
-const SPEED = 300.0
-const DASH_SPEED = 700.0
-const JUMP_VELOCITY = -380.0
+const DASH_SPEED = 600.0
+const JUMP_VELOCITY = -390.0
 
+var speed = 300.0
 var dash_direction = Vector2(1,0)
 var can_move = true
 
 var powers = []
+var characterSprite = \"Beige\"
 
 var is_dashing = false
 var can_dash = false
@@ -29,8 +42,16 @@ var jump_count = 0
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 
-func start():
-	$AnimatedSprite2D.animation = \"idle\"
+func _ready():
+	$AnimatedSprite2D.animation = \"idle\" + characterSprite
+	var config = ConfigFile.new()
+	var data = config.load(\"res://actors/player.cfg\")
+
+	if data != OK:
+		return
+
+	for player in config.get_sections():
+		characterSprite = config.get_value(player, \"player_skin\")
 	
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -39,42 +60,46 @@ func _physics_process(delta):
 	if can_move:
 		# Handle dash
 		dash()
+		double_velocity()
 		if not is_dashing:
 			# Add the gravity.
 			if not is_on_floor():
 				velocity.y += gravity * delta
 				$AnimatedSprite2D.flip_h = velocity.x < 0
+					
+			if is_on_floor():
+				if powers.find(\"pujm\") != -1:
+					jump_count = 1
+				else: 
+					jump_count = 0
+					
+				if velocity.length() > 0:
+					$AnimatedSprite2D.animation = \"walk\" + characterSprite
+					$AnimatedSprite2D.play()
+					$AnimatedSprite2D.flip_h = velocity.x < 0
+				else:
+					$AnimatedSprite2D.animation = \"idle\" + characterSprite
+					$AnimatedSprite2D.play()
+			else:
+				$AnimatedSprite2D.animation = \"jump\" + characterSprite
+				$AnimatedSprite2D.play()
+				
 			# Handle jump.
 			if Input.is_action_just_pressed(\"space\") and jump_count >= 0:
 				jump_count -= 1
 				velocity.y = JUMP_VELOCITY
-				#print(\"jump\", jump_count)
-					
-			if is_on_floor():
-				if powers.find(\"jump\") != -1:
-					jump_count = 1
-				else: 
-					jump_count = 0
-				#print(\"floor\", jump_count)
 				
 			if direction:
-				velocity.x = direction * SPEED
+				velocity.x = direction * speed
 			else:
-				velocity.x = move_toward(velocity.x, 0, SPEED)
+				velocity.x = move_toward(velocity.x, 0, speed)
 				
-			if velocity.length() > 0:
-				$AnimatedSprite2D.animation = \"walk\"
-				$AnimatedSprite2D.play()
-				$AnimatedSprite2D.flip_h = velocity.x < 0
-			else:
-				$AnimatedSprite2D.animation = \"idle\"
-				$AnimatedSprite2D.play()
 				
 			
 		move_and_slide()
 		
 func dash():
-	if powers.find(\"dash\") != -1:
+	if powers.find(\"sadh\") != -1:
 		if is_on_floor():
 			can_dash = true
 			
@@ -90,19 +115,58 @@ func dash():
 			await get_tree().create_timer(0.1).timeout
 			is_dashing = false
 			
-
+func double_velocity():
+	if powers.find(\"clove\") != -1:
+		speed = 600.0
+	else:
+		speed = 300.0
 func _on_canvas_layer_commands_changed(text):
-	powers = text.split(\",\")
+	#dash -> sadh
+	#jump -> pujm
+	#veloc -> clove
+	powers = text.split(\" \")
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jkujg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("1_10mfv")
+}],
+"loop": true,
+"name": &"idleAzul",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("1_7mwmo")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idleBeige",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c3r1l")
+}],
+"loop": true,
+"name": &"idleRosa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wsw3l")
+}],
+"loop": true,
+"name": &"idleVerde",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_y7t47")
+}],
+"loop": true,
+"name": &"jumpAzul",
 "speed": 5.0
 }, {
 "frames": [{
@@ -110,18 +174,67 @@ animations = [{
 "texture": ExtResource("2_1ofwq")
 }],
 "loop": true,
-"name": &"jump",
+"name": &"jumpBeige",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_1hsyn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_o6c11")
+"texture": ExtResource("7_x60fd")
 }],
 "loop": true,
-"name": &"walk",
+"name": &"jumpRosa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_nm60p")
+}],
+"loop": true,
+"name": &"jumpVerde",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vv3wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2xqr8")
+}],
+"loop": true,
+"name": &"walkAzul",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o6c11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1hsyn")
+}],
+"loop": true,
+"name": &"walkBeige",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_v7fkt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ni3nr")
+}],
+"loop": true,
+"name": &"walkRosa",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_elymp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_bcwli")
+}],
+"loop": true,
+"name": &"walkVerde",
 "speed": 5.0
 }]
 
@@ -138,7 +251,7 @@ script = SubResource("GDScript_bx58s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jkujg")
-animation = &"jump"
+animation = &"idleAzul"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.8, 0.8)
