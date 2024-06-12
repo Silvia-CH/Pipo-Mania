@@ -28,3 +28,6 @@ func _on_canvas_layer_unpause():
 
 func _on_door_body_entered(_body):
 	get_tree().change_scene_to_packed(siguiente)
+
+func _on_puase_ui_volver_menu_principal():
+	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")

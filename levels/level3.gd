@@ -22,3 +22,6 @@ func _on_canvas_layer_pause():
 func _on_canvas_layer_unpause():
 	$Player.can_move = true
 	$Player/AnimatedSprite2D.play()
+
+func _on_puase_ui_volver_menu_principal():
+	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")

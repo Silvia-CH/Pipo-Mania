@@ -24,7 +24,6 @@ func _on_canvas_layer_unpause():
 	$Player.can_move = true
 	$Player/AnimatedSprite2D.play()
 
-
 func _on_door_body_entered(_body):
 	get_tree().change_scene_to_packed(siguiente)
 

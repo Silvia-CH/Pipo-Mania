@@ -127,6 +127,7 @@ func _on_update(datos):
 	var auth = Firebase.Auth.auth
 	if auth.localid:
 		var data: Dictionary = {
-			"username": datos
+			"username": datos,
+			"tiempo": 600
 		}
 		var tarea: FirestoreTask = userdata.update(auth.localid,data)
