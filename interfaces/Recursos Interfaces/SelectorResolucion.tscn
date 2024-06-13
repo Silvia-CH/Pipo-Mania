@@ -15,9 +15,9 @@ script = ExtResource("1_t4ctj")
 layout_mode = 0
 
 [node name="Label" type="Label" parent="Resolucion"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Resolución"
 
 [node name="VSeparator" type="VSeparator" parent="Resolucion"]
@@ -26,6 +26,7 @@ layout_mode = 2
 [node name="SelectorRes" type="OptionButton" parent="Resolucion"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 item_count = 4
 selected = 0
 popup/item_0/text = "1920x1080"
