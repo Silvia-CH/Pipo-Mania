@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://lb8c46q3d5yk"]
+[gd_scene load_steps=4 format=3 uid="uid://lb8c46q3d5yk"]
 
 [ext_resource type="Script" path="res://interfaces/PuaseUI.gd" id="1_4thj4"]
 [ext_resource type="PackedScene" uid="uid://b12dofwssxsuf" path="res://interfaces/Recursos Interfaces/OpcionDesplegable.tscn" id="2_2es7m"]
 [ext_resource type="PackedScene" uid="uid://duli8548ijb2w" path="res://interfaces/Recursos Interfaces/SelectorResolucion.tscn" id="3_40p3c"]
-[ext_resource type="PackedScene" uid="uid://c7m5808enhuvd" path="res://interfaces/CambiarControl.tscn" id="4_agllu"]
 
 [node name="PuaseUi" type="CanvasLayer"]
 script = ExtResource("1_4thj4")
@@ -15,16 +14,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
 [node name="MarginContainer" type="MarginContainer" parent="ContenedorPadre"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 250.0
-offset_right = -250.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 100
@@ -45,13 +40,11 @@ layout_mode = 2
 text = "X"
 
 [node name="Ventanas" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 600)
+custom_minimum_size = Vector2(400, 600)
 layout_mode = 2
 tab_alignment = 1
-current_tab = 1
 
 [node name="Opciones" type="HBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 120
 
@@ -73,73 +66,4 @@ layout_mode = 2
 [node name="Resolucion" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer/VBoxContainer" instance=ExtResource("3_40p3c")]
 layout_mode = 2
 
-[node name="Controles" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 90
-alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="CambiarControl" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "space"
-
-[node name="CambiarControl2" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "left"
-
-[node name="CambiarControl3" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "right"
-
-[node name="CambiarControl4" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "dash"
-
-[node name="Controles" type="MarginContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas"]
-layout_mode = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="ScrollContainer" type="ScrollContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 90
-alignment = 1
-
-[node name="HSeparator" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="CambiarControl" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "space"
-
-[node name="CambiarControl2" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "left"
-
-[node name="CambiarControl3" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "right"
-
-[node name="CambiarControl4" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "dash"
-
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir" to="." method="_on_salir_pressed"]
-[connection signal="tab_clicked" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas" to="." method="_on_ventanas_tab_clicked"]

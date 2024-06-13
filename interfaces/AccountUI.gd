@@ -15,13 +15,6 @@ extends Control
 @onready var alternador = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/Alternador
 @onready var apodoCH = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer/Apodo
 @onready var apodoPRD = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/HBoxContainer/ApodoPRD
-@onready var tiempoP1 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer/Label
-@onready var tiempoP2 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer/Label2
-@onready var tiempoP3 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer/Label3
-@onready var tiempoC1 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer/Label
-@onready var tiempoC2 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer/Label2
-@onready var tiempoC3 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer/Label3
-
 @onready var rotacion = false;
 @onready var userdata: FirestoreCollection = Firebase.Firestore.collection("info")
 
@@ -31,29 +24,24 @@ signal unblock_login
 signal load_data
 signal update
 
-## Esta funcion se ejecuta nada mas iniciar la escena
 func _ready():
 	set_process(false)
-
 	Firebase.Auth.login_succeeded.connect(on_login_succeded)
 	Firebase.Auth.signup_succeeded.connect(on_signup_succeded)
 	Firebase.Auth.login_failed.connect(on_login_failed)
 	Firebase.Auth.signup_failed.connect(on_signup_failed)
 	if Firebase.Auth.check_auth_file():
 		block_login.emit()
-		
-## Funcion para volver al menú principal despues de presionar el botón
+
 func _on_salir_pressed():
 	salir_menu_cuenta.emit()
 	set_process(false)
-	
-## Funcion de inicio de sesión
+
 func _on_inicio_sesion_pressed():
 	var email = emailLOG.text
 	var passwd = passwdLOG.text
 	Firebase.Auth.login_with_email_and_password(emailLOG.text,passwdLOG.text)
-	
-## Funcion de registro
+
 func _on_registro_pressed():
 	var email = emailRES.text
 	var pass1 = passwdRES.text
@@ -61,30 +49,23 @@ func _on_registro_pressed():
 	if(pass1 == pass2):
 		Firebase.Auth.signup_with_email_and_password(email,pass2)
 
-## Funcion que guarda el token de sesion y cambia la ventana a la de usuario
 func on_login_succeded(auth):
 	Firebase.Auth.save_auth(auth)
-	load_clasificar()
 	block_login.emit()
 
-## Cambia el mensaje de aviso a uno personalizado
 func on_signup_succeded(auth):
 	mensajeAVISO.text = "Registro exitoso"
-	stablish_datos(auth)
 
-## Muestra un error en caso de fallo de inicio de sesion
 func on_login_failed(error_code,message):
 	print(error_code)
 	print(message)
 	mensajeAVISO.text = "Error : "+ message
 
-## Muestra un error en caso de fallo de registro
 func on_signup_failed(error_code,message):
 	print(error_code)
 	print(message)
 	mensajeAVISO.text = "Error : "+ message
 
-## Cambia entre vista de inicio de sesion y registro
 func _on_rotar_pressed():
 	if(rotacion):
 		register.visible=false
@@ -99,8 +80,6 @@ func _on_rotar_pressed():
 		register.visible=true
 		rotacion=true
 
-## Bloquea todas las funciones de inicio de sesion y registro
-## Esto se ejecuta al autenticarse el usuario
 func _on_block_login():
 	login.visible=false
 	register.visible=false
@@ -110,8 +89,6 @@ func _on_block_login():
 	registered.visible=true
 	load_data.emit()
 
-## Desbloquea todas las funciones de inicio de sesion y registro
-## Esto se ejecuta al cerrar sesion
 func _on_unblock_login():
 	registered.visible=false
 	login.visible=true
@@ -120,13 +97,10 @@ func _on_unblock_login():
 	mensajeAVISO.visible=true
 	mensajeALT.visible=true
 
-## Cierra sesion y borra el token de sesion
 func _on_logout_pressed():
 	Firebase.Auth.logout()
 	unblock_login.emit()
 
-## Llama a la funcion para subir el nuevo nombre a la base de datos
-## Actualiza el nombre mostrado en la vista
 func _on_rename_pressed():
 	load_data.emit()
 	var apodo = apodoCH.text
@@ -134,13 +108,9 @@ func _on_rename_pressed():
 	apodoCH.text=""
 	load_data.emit()
 
-## Agarra la informacion que coincida con el usuario autenticado de la base de datos
-## Si es la primera vez que inicia sesion, se genera un nombre aleatorio
 func _on_load_data():
 	var auth = Firebase.Auth.auth
 	if auth.localid:
-		## Utiliza la variable "userdata" que contiene la coleccion "info"
-		## y el ID del auth para acceder a sus datos de usuario 
 		var tarea: FirestoreTask = userdata.get_doc(auth.localid)
 		var tareaFIN: FirestoreTask = await tarea.task_finished
 		var documento = tareaFIN.document
@@ -152,7 +122,7 @@ func _on_load_data():
 			update.emit(usuario)
 			apodoPRD.text = usuario
 
-## Actualiza el nombre de usuario con los datos proporcionados
+
 func _on_update(datos):
 	var auth = Firebase.Auth.auth
 	if auth.localid:
@@ -160,42 +130,3 @@ func _on_update(datos):
 			"username": datos
 		}
 		var tarea: FirestoreTask = userdata.update(auth.localid,data)
-
-func stablish_datos(auth):
-	var tiempos = "00:00:00"
-	var rng = RandomNumberGenerator.new()
-	var usuario = "usuario" + str(rng.randi_range(0, 100))
-	apodoPRD.text = usuario
-	if auth.localid:
-		var data: Dictionary = {
-			"username": usuario,
-			"tiempo1" : tiempos,
-			"tiempo2" : tiempos,
-			"tiempo3" : tiempos,
-		}
-		var tarea: FirestoreTask = userdata.update(auth.localid,data)
-
-func load_clasificar():
-	var auth2 = Firebase.Auth.auth
-	if auth2.localid:
-		## Refresca la clasificacion del Usuario
-		var tarea: FirestoreTask = userdata.get_doc(auth2.localid)
-		var tareaFIN: FirestoreTask = await tarea.task_finished
-		var documento = tareaFIN.document
-		if documento && documento.doc_fields:
-			tiempoP1.text = "%s" %documento.doc_fields.tiempo1
-			tiempoP2.text = "%s" %documento.doc_fields.tiempo2
-			tiempoP3.text = "%s" %documento.doc_fields.tiempo3
-		## Refresca la clasificacion Global
-		var tarea2: FirestoreTask = userdata.get_doc("clasificacion")
-		var tareaFIN2: FirestoreTask = await tarea2.task_finished
-		var documento2 = tareaFIN2.document
-		if documento2 && documento2.doc_fields:
-			tiempoC1.text = "%s" %documento2.doc_fields.tiempo1
-			tiempoC2.text = "%s" %documento2.doc_fields.tiempo2
-			tiempoC3.text = "%s" %documento2.doc_fields.tiempo3
-
-
-func _on_refrescar_pressed():
-	load_clasificar()
-

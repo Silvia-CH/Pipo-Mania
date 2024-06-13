@@ -895,7 +895,7 @@ _data = {
 "movement": SubResource("Animation_x38vh")
 }
 
-[node name="main" type="Node"]
+[node name="main2" type="Node"]
 script = ExtResource("1_knoyo")
 
 [node name="Commands" parent="." instance=ExtResource("3_dln6f")]

@@ -1,0 +1,89 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg6adaarb7l5p"]
+
+[ext_resource type="Texture2D" uid="uid://cimxu6hjhhpp5" path="res://art/background/Backgrounds/backgroundColorForest.png" id="1_loauc"]
+[ext_resource type="Texture2D" uid="uid://chqqnt6ryi8ei" path="res://art/background/PNG/Default/cloud1.png" id="2_qjqeb"]
+[ext_resource type="Texture2D" uid="uid://bd3to205p38fv" path="res://art/background/PNG/Default/cloud2.png" id="3_6orvl"]
+[ext_resource type="Texture2D" uid="uid://c5h2ep8ce88md" path="res://art/background/PNG/Default/cloud3.png" id="4_vh2vj"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+layer = -10
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
+position = Vector2(-140, -267)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer2"]
+position = Vector2(1117, 322.499)
+scale = Vector2(3.18164, 1.62988)
+texture = ExtResource("1_loauc")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+position = Vector2(-28, -123)
+motion_scale = Vector2(0.1, 0)
+
+[node name="grupo1" type="Node2D" parent="ParallaxLayer"]
+
+[node name="nube1" type="Sprite2D" parent="ParallaxLayer/grupo1"]
+position = Vector2(141, 128)
+texture = ExtResource("2_qjqeb")
+
+[node name="nube2" type="Sprite2D" parent="ParallaxLayer/grupo1"]
+position = Vector2(948, 93)
+texture = ExtResource("2_qjqeb")
+
+[node name="nube3" type="Sprite2D" parent="ParallaxLayer/grupo1"]
+position = Vector2(1785, -406)
+texture = ExtResource("2_qjqeb")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+position = Vector2(-140, -267)
+motion_scale = Vector2(0.6, 0)
+
+[node name="grupo2" type="Node2D" parent="ParallaxLayer4"]
+position = Vector2(112, -100)
+
+[node name="nube1" type="Sprite2D" parent="ParallaxLayer4/grupo2"]
+position = Vector2(639, 237)
+texture = ExtResource("3_6orvl")
+
+[node name="nube2" type="Sprite2D" parent="ParallaxLayer4/grupo2"]
+position = Vector2(1276, -42)
+texture = ExtResource("3_6orvl")
+
+[node name="nube3" type="Sprite2D" parent="ParallaxLayer4/grupo2"]
+position = Vector2(543, -104)
+texture = ExtResource("3_6orvl")
+
+[node name="nube4" type="Sprite2D" parent="ParallaxLayer4/grupo2"]
+position = Vector2(366, 153)
+texture = ExtResource("3_6orvl")
+
+[node name="nube5" type="Sprite2D" parent="ParallaxLayer4/grupo2"]
+position = Vector2(1007, 502)
+texture = ExtResource("3_6orvl")
+
+[node name="nube6" type="Sprite2D" parent="ParallaxLayer4/grupo2"]
+position = Vector2(878, -311)
+texture = ExtResource("3_6orvl")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+position = Vector2(-140, -267)
+motion_scale = Vector2(0.5, 0)
+
+[node name="grupo3" type="Node2D" parent="ParallaxLayer3"]
+position = Vector2(104, 594)
+
+[node name="nube1" type="Sprite2D" parent="ParallaxLayer3/grupo3"]
+position = Vector2(-141, -453)
+texture = ExtResource("4_vh2vj")
+
+[node name="nube2" type="Sprite2D" parent="ParallaxLayer3/grupo3"]
+position = Vector2(1889, -351)
+texture = ExtResource("4_vh2vj")
+
+[node name="nube3" type="Sprite2D" parent="ParallaxLayer3/grupo3"]
+position = Vector2(2513, -631)
+texture = ExtResource("4_vh2vj")
+
+[node name="nube4" type="Sprite2D" parent="ParallaxLayer3/grupo3"]
+position = Vector2(228, -993)
+texture = ExtResource("4_vh2vj")

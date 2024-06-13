@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://interfaces/MainUI.gd" id="1_ynoir"]
 [ext_resource type="PackedScene" uid="uid://dwvqv56tts8rq" path="res://interfaces/AccountUI.tscn" id="3_avb2w"]
-[ext_resource type="PackedScene" path="res://interfaces/PuaseUIALT.tscn" id="3_skaki"]
+[ext_resource type="PackedScene" uid="uid://dj205k3c028m4" path="res://interfaces/PuaseUIALT.tscn" id="3_skaki"]
 
 [sub_resource type="SystemFont" id="SystemFont_m57sw"]
 font_names = PackedStringArray("Monocraft")

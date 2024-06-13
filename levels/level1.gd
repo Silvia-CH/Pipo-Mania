@@ -1,7 +1,6 @@
 extends Node
 
 @export var siguiente = preload("res://levels/level2.tscn") 
-@export var menu = preload("res://interfaces/MainUI.tscn") 
 var isPaused = false
 
 func _on_visible_on_screen_notifier_2d_2_screen_exited():
@@ -18,7 +17,7 @@ func _on_confirmation_dialog_confirmed():
 
 
 func _on_confirmation_dialog_canceled():
-	get_tree().change_scene_to_packed(menu)
+	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
 
 func _on_canvas_layer_pause():
 	if !isPaused:
@@ -41,7 +40,7 @@ func _on_door_body_entered(_body):
 	$Commands.saveTimer.emit()
 
 func _on_puase_ui_volver_menu_principal():
-	get_tree().change_scene_to_packed(menu)
+	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
 
 func _on_puase_ui_pause():
 		get_tree().paused = true

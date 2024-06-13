@@ -3,21 +3,9 @@ extends Node
 var isPaused = false
 
 func _on_visible_on_screen_notifier_2d_2_screen_exited():
-	$DeathDialog.show()
+	$AcceptDialog.show()
 	$Player.can_move = false
 	$Commands.is_paused = true
-
-
-func _on_confirmation_dialog_confirmed():
-	$DeathDialog.hide()
-	$Player.can_move = true
-	$Player.set_position($StartPosition.position)
-	$Commands.is_paused = false
-
-
-func _on_confirmation_dialog_canceled():
-	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
-
 
 func _on_canvas_layer_pause():
 	if !isPaused:
@@ -41,3 +29,15 @@ func _on_puase_ui_pause():
 func _on_puase_ui_unpause():
 		get_tree().paused = false
 		$Commands.set_process_mode(PROCESS_MODE_ALWAYS)
+
+
+func _on_area_2d_body_entered(_body):
+	$Commands.is_paused = true
+	$Player.can_move = false
+	$Player.cutscene = true
+	$Player/Camera2D2.zoom = Vector2(0.9, 0.9)
+	$Player/Camera2D2.offset = Vector2(0, -300)
+
+
+func _on_accept_dialog_confirmed():
+	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")

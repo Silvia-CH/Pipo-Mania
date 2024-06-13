@@ -17,3 +17,5 @@ res://interfaces/MainUI.gd
 res://config/player.cfg
 res://config/timer.cfg
 res://interfaces/skin_picker_button_group.tres
+res://interfaces/AccountUI.gd
+res://levels/PB_red_forest.tscn
