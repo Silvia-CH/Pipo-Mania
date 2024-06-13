@@ -241,22 +241,17 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 30
-alignment = 1
-
-[node name="Clasificiacion" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer"]
+[node name="Clasificiacion" type="TabContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Global" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion"]
+[node name="Global" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global"]
 custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -264,75 +259,37 @@ size_flags_vertical = 4
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer"]
+[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
-
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Admin: 00:00:00"
+text = "hfdhdfhdfhdfhdfhdf"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer"]
+[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Admin: 00:00:00"
+text = "gsdgsdgsdgsdgsd"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer"]
+[node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "Admin: 00:00:00"
-horizontal_alignment = 1
 
-[node name="HSeparator2" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer"]
+[node name="Label4" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 50
 
-[node name="Personal" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion"]
+[node name="Label5" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
+layout_mode = 2
+
+[node name="Personal" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion"]
 visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
-alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Personal"]
 layout_mode = 2
-theme_override_constants/separation = 20
-alignment = 1
 
-[node name="HSeparator" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer"]
+[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Personal/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "text"
-horizontal_alignment = 1
-
-[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "text"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "text"
-horizontal_alignment = 1
-
-[node name="HSeparator2" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 10
-
-[node name="Refrescar" type="Button" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 8
-text = "Refrescar"
+text = "aaaaaaaaaaaaaaaaa"
 
 [connection signal="block_login" from="." to="." method="_on_block_login"]
 [connection signal="load_data" from="." to="." method="_on_load_data"]
@@ -344,4 +301,3 @@ text = "Refrescar"
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer/Rename" to="." method="_on_rename_pressed"]
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/Logout" to="." method="_on_logout_pressed"]
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/Alternador/Rotar" to="." method="_on_rotar_pressed"]
-[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Refrescar" to="." method="_on_refrescar_pressed"]
