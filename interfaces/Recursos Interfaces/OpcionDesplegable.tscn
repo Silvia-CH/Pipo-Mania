@@ -15,9 +15,9 @@ script = ExtResource("1_pxmkb")
 layout_mode = 0
 
 [node name="Label" type="Label" parent="Tipo_Ventana"]
-custom_minimum_size = Vector2(270, 0)
+custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Tipo de ventana"
 
 [node name="VSeparator" type="VSeparator" parent="Tipo_Ventana"]
@@ -26,6 +26,7 @@ layout_mode = 2
 [node name="OptionButton" type="OptionButton" parent="Tipo_Ventana"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 20
 item_count = 4
 selected = 0
 popup/item_0/text = "Pantalla Completa"
