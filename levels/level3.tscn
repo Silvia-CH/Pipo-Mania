@@ -1956,8 +1956,9 @@ layer_2/name = "BackgorundCave"
 layer_2/modulate = Color(0.952941, 0.952941, 0.952941, 1)
 layer_2/tile_data = PackedInt32Array(-851947, 327681, 7, -917483, 327681, 7, -983019, 327681, 7, -983018, 327681, 7, -917482, 327681, 7, -851946, 327681, 7, -917481, 327681, 7, -851945, 327681, 7, -983017, 327681, 7, -983016, 327681, 7, -917480, 327681, 7, -1048552, 327681, 7, -1048553, 327681, 7, -524293, 327681, 7, -524294, 327681, 7, -589830, 327681, 7, -589829, 327681, 7, -655365, 327681, 7, -655366, 327681, 7, -720901, 327681, 7, -720900, 327681, 7, -655364, 327681, 7, -786436, 327681, 7, 327676, 327680, 7, 327677, 327681, 7, 393213, 327681, 7, 393214, 327681, 7, 458750, 327681, 7, 458751, 327681, 7, 393216, 327681, 7, 393217, 327681, 7, 393218, 327681, 7, 393219, 327681, 7, 458755, 327681, 7, 458754, 327681, 7, 458753, 327681, 7, 327678, 327681, 7, 393215, 327681, 7, 262142, 327681, 7, 327679, 327681, 7, 327680, 327681, 7, 524285, 327681, 7, 327674, 327681, 7, 393210, 327681, 7, 393211, 327681, 7, 393212, 327681, 7, 262141, 327681, 7, -851944, 327681, 7, -589831, 327681, 7)
 
-[connection signal="pause" from="PuaseUi" to="." method="_on_puase_ui_pause"]
-[connection signal="unpause" from="PuaseUi" to="." method="_on_puase_ui_unpause"]
+[connection signal="pause" from="PuaseUi" to="." method="_on_canvas_layer_pause"]
+[connection signal="unpause" from="PuaseUi" to="." method="_on_canvas_layer_unpause"]
+[connection signal="volver_menu_principal" from="PuaseUi" to="." method="_on_puase_ui_volver_menu_principal"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D3" to="." method="_on_visible_on_screen_notifier_2d_2_screen_exited"]
 [connection signal="commands_changed" from="Commands" to="Player" method="_on_canvas_layer_commands_changed"]
 [connection signal="pause" from="Commands" to="." method="_on_canvas_layer_pause"]
