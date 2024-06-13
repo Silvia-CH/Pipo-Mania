@@ -1,7 +1,7 @@
 extends Node
 
 @export var btnGroup: ButtonGroup
-@export var nivel = preload("res://levels/level3.tscn")
+@export var nivel = preload("res://levels/level1.tscn")
 @export var menu = preload("res://interfaces/MainUI.tscn")
 var skin: String
 

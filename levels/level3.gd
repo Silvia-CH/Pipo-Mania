@@ -3,7 +3,6 @@ extends Node
 var isPaused = false
 
 func _on_visible_on_screen_notifier_2d_2_screen_exited():
-	$AcceptDialog.show()
 	$Player.can_move = false
 	$Commands.is_paused = true
 
@@ -37,7 +36,11 @@ func _on_area_2d_body_entered(_body):
 	$Player.cutscene = true
 	$Player/Camera2D2.zoom = Vector2(0.9, 0.9)
 	$Player/Camera2D2.offset = Vector2(0, -300)
+	$Commands.visible = false
+	$Player/Fin.visible = true
 
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
 
-func _on_accept_dialog_confirmed():
+func _on_exit_body_entered(_body):
 	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
