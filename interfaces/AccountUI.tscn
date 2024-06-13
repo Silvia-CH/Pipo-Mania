@@ -261,13 +261,13 @@ alignment = 1
 
 [node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
-text = "hfdhdfhdfhdfhdfhdf"
+text = "Yuri - 07:42:16"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
-text = "gsdgsdgsdgsdgsd"
+text = "Silvia - 08:23:55"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]

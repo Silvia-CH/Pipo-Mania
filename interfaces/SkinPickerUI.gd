@@ -2,6 +2,7 @@ extends Node
 
 @export var btnGroup: ButtonGroup
 @export var nivel = preload("res://levels/level1.tscn")
+@export var menu = preload("res://interfaces/MainUI.tscn")
 var skin: String
 
 func _ready():
@@ -21,7 +22,7 @@ func _on_confirmation_dialog_confirmed():
 
 	config.set_value("Player", "player_skin", skin)
 
-	config.save("res://actors/player.cfg")
+	config.save("res://config/player.cfg")
 	get_tree().change_scene_to_packed(nivel)
 
 
@@ -31,3 +32,7 @@ func _on_guardar_pressed():
 	else:
 		$SaveDialog.dialog_text = "Has elegido %s" % skin
 		$SaveDialog.show()
+
+
+func _on_salir_pressed():
+	get_tree().change_scene_to_packed(menu)

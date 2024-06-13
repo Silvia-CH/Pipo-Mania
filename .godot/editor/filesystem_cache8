@@ -1,11 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1717947537
+::res://::1718266528
 export_presets.cfg::TextFile::-1::1716629839::0::1::::<><>::
 icon.svg::CompressedTexture2D::1636416022714048737::1717844236::1717844265::1::::<><>::
-::res://actors/::1717950210
-player.cfg::TextFile::-1::1717934786::0::1::::<><>::
+::res://actors/::1718265841
+player.cfg::TextFile::-1::1718265847::0::1::::<><>::
 player.gd::GDScript::-1::1717933305::0::1::::<>CharacterBody2D<>::
-player.tscn::PackedScene::61511070288468316::1717950210::0::1::::<><>::uid://bhh7000hh2i3::::res://art/extendedEnemies/player_sprites/beige/alienBeige.png<>uid://demthuws1naer::::res://art/extendedEnemies/player_sprites/blue/alienBlue.png<>uid://b7yga3m5wvfnv::::res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png<>uid://c1hgpdtswfs0m::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk1.png<>uid://ftugm6wngb0b::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk2.png<>uid://cv2byeyt5ti6r::::res://art/extendedEnemies/player_sprites/pink/alienPink.png<>uid://f8vuycbq3upn::::res://art/extendedEnemies/player_sprites/green/alienGreen.png<>uid://cphhcyl0up8dc::::res://art/extendedEnemies/player_sprites/blue/alienBlue_jump.png<>uid://bmxg5ad8vfvfi::::res://art/extendedEnemies/player_sprites/blue/alienBlue_walk2.png<>uid://bbh0v0a0scfb4::::res://art/extendedEnemies/player_sprites/green/alienGreen_jump.png<>uid://bvttiunnl88c3::::res://art/extendedEnemies/player_sprites/blue/alienBlue_walk1.png<>uid://qs54dfs512vv::::res://art/extendedEnemies/player_sprites/pink/alienPink_jump.png<>uid://rr6vo75jjjim::::res://art/extendedEnemies/player_sprites/green/alienGreen_walk1.png<>uid://dwxgywqv8c5hp::::res://art/extendedEnemies/player_sprites/green/alienGreen_walk2.png<>uid://c4bxx0ejgef1p::::res://art/extendedEnemies/player_sprites/pink/alienPink_walk1.png<>uid://dfxqnsp5e1p0m::::res://art/extendedEnemies/player_sprites/pink/alienPink_walk2.png
+player.tscn::PackedScene::61511070288468316::1718265841::0::1::::<><>::uid://bhh7000hh2i3::::res://art/extendedEnemies/player_sprites/beige/alienBeige.png<>uid://demthuws1naer::::res://art/extendedEnemies/player_sprites/blue/alienBlue.png<>uid://b7yga3m5wvfnv::::res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png<>uid://c1hgpdtswfs0m::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk1.png<>uid://ftugm6wngb0b::::res://art/extendedEnemies/player_sprites/beige/alienBeige_walk2.png<>uid://cv2byeyt5ti6r::::res://art/extendedEnemies/player_sprites/pink/alienPink.png<>uid://f8vuycbq3upn::::res://art/extendedEnemies/player_sprites/green/alienGreen.png<>uid://cphhcyl0up8dc::::res://art/extendedEnemies/player_sprites/blue/alienBlue_jump.png<>uid://bmxg5ad8vfvfi::::res://art/extendedEnemies/player_sprites/blue/alienBlue_walk2.png<>uid://bbh0v0a0scfb4::::res://art/extendedEnemies/player_sprites/green/alienGreen_jump.png<>uid://bvttiunnl88c3::::res://art/extendedEnemies/player_sprites/blue/alienBlue_walk1.png<>uid://qs54dfs512vv::::res://art/extendedEnemies/player_sprites/pink/alienPink_jump.png<>uid://rr6vo75jjjim::::res://art/extendedEnemies/player_sprites/green/alienGreen_walk1.png<>uid://dwxgywqv8c5hp::::res://art/extendedEnemies/player_sprites/green/alienGreen_walk2.png<>uid://c4bxx0ejgef1p::::res://art/extendedEnemies/player_sprites/pink/alienPink_walk1.png<>uid://dfxqnsp5e1p0m::::res://art/extendedEnemies/player_sprites/pink/alienPink_walk2.png
 ::res://addons/::1716629839
 ::res://addons/godot-firebase/::1716629857
 icon.svg::CompressedTexture2D::1932520971276548949::1716629839::1716629857::1::::<><>::
@@ -1967,38 +1967,39 @@ wireLeft.png::CompressedTexture2D::6086478872060864129::1388619091::1716632854::
 wireRight.png::CompressedTexture2D::1838022617569460427::1388619091::1716632854::1::::<><>::
 ::res://art/kenney_platformer-art-deluxe/Request pack/Vector/::1716632854
 sheet.svg::CompressedTexture2D::4926442331784168889::1388617591::1716632854::1::::<><>::
-::res://art/power_icons/::1717951949
+::res://art/power_icons/::1717951964
 jump.png::CompressedTexture2D::8342694338470452475::1717951748::1717951964::1::::<><>::
 speed.png::CompressedTexture2D::8231238034053928607::1717951939::1717951964::1::::<><>::
 sprint.png::CompressedTexture2D::1594798213201536600::1717951601::1717951964::1::::<><>::
-::res://interfaces/::1717950304
+::res://config/::1718266528
+::res://interfaces/::1718266490
 AccountUI.gd::GDScript::-1::1717451341::0::1::::<>Control<>::
-AccountUI.tscn::PackedScene::8747779141986388022::1717947656::0::1::::<><>::res://interfaces/AccountUI.gd
+AccountUI.tscn::PackedScene::8747779141986388022::1717976460::0::1::::<><>::res://interfaces/AccountUI.gd
 fondoNegro.jpg::CompressedTexture2D::9054707075169596071::1715158536::1716213719::1::::<><>::
-HudUI.gd::GDScript::-1::1717950295::0::1::::<>CanvasLayer<>::
-HudUI.tscn::PackedScene::5672615457365408216::1717950304::0::1::::<><>::res://interfaces/HudUI.gd<>uid://xkxsd6ufkqjp::::res://icon.svg
-LoginUI.gd::GDScript::-1::1717582913::0::1::::<>CanvasLayer<>::
-LoginUI.tscn::PackedScene::7687613672775584407::1717844263::0::1::::<><>::res://interfaces/LoginUI.gd
+HudUI.gd::GDScript::-1::1717967919::0::1::::<>CanvasLayer<>::
+HudUI.tscn::PackedScene::5672615457365408216::1718266490::0::1::::<><>::res://interfaces/HudUI.gd<>uid://wysdgfu7hh7e::::res://art/power_icons/sprint.png<>uid://dq4i7se5d58ax::::res://art/power_icons/jump.png<>uid://dpjjj1ys26k5t::::res://art/power_icons/speed.png
+LoginUI.gd::GDScript::-1::1717982103::0::1::::<>CanvasLayer<>::
+LoginUI.tscn::PackedScene::7687613672775584407::1718265842::0::1::::<><>::res://interfaces/LoginUI.gd
 MainUI.gd::GDScript::-1::1717947537::0::1::::<>Control<>::
-MainUI.tscn::PackedScene::5044650540267045088::1717950210::0::1::::<><>::res://interfaces/MainUI.gd<>uid://dwvqv56tts8rq::::res://interfaces/AccountUI.tscn<>res://interfaces/PuaseUIALT.tscn
-PuaseUI.gd::GDScript::-1::1717947537::0::1::::<>CanvasLayer<>::
-PuaseUI.tscn::PackedScene::776150461952147786::1717950210::0::1::::<><>::res://interfaces/PuaseUI.gd<>uid://b12dofwssxsuf::::res://interfaces/Recursos Interfaces/OpcionDesplegable.tscn<>uid://duli8548ijb2w::::res://interfaces/Recursos Interfaces/SelectorResolucion.tscn
+MainUI.tscn::PackedScene::5044650540267045088::1718265841::0::1::::<><>::res://interfaces/MainUI.gd<>uid://dwvqv56tts8rq::::res://interfaces/AccountUI.tscn<>res://interfaces/PuaseUIALT.tscn
+PuaseUI.gd::GDScript::-1::1717963737::0::1::::<>CanvasLayer<>::
+PuaseUI.tscn::PackedScene::776150461952147786::1718265841::0::1::::<><>::res://interfaces/PuaseUI.gd<>uid://b12dofwssxsuf::::res://interfaces/Recursos Interfaces/OpcionDesplegable.tscn<>uid://duli8548ijb2w::::res://interfaces/Recursos Interfaces/SelectorResolucion.tscn
 PuaseUIALT.gd::GDScript::-1::1717947537::0::1::::<>CanvasLayer<>::
 PuaseUIALT.tscn::PackedScene::-1::1717947537::0::1::::<><>::
-SkinPickerUI.gd::GDScript::-1::1717947655::0::1::::<>Node<>::
-SkinPickerUI.tscn::PackedScene::8891580799216073215::1717950210::0::1::::<><>::res://interfaces/SkinPickerUI.gd<>uid://bhh7000hh2i3::::res://art/extendedEnemies/player_sprites/beige/alienBeige.png<>uid://b7yga3m5wvfnv::::res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png<>uid://demthuws1naer::::res://art/extendedEnemies/player_sprites/blue/alienBlue.png<>uid://cphhcyl0up8dc::::res://art/extendedEnemies/player_sprites/blue/alienBlue_jump.png<>uid://b3ra5yws0w1fh::::res://interfaces/skin_picker_button_group.tres<>uid://f8vuycbq3upn::::res://art/extendedEnemies/player_sprites/green/alienGreen.png<>uid://bbh0v0a0scfb4::::res://art/extendedEnemies/player_sprites/green/alienGreen_jump.png<>uid://cv2byeyt5ti6r::::res://art/extendedEnemies/player_sprites/pink/alienPink.png<>uid://qs54dfs512vv::::res://art/extendedEnemies/player_sprites/pink/alienPink_jump.png
+SkinPickerUI.gd::GDScript::-1::1718265690::0::1::::<>Node<>::
+SkinPickerUI.tscn::PackedScene::8891580799216073215::1718265648::0::1::::<><>::res://interfaces/SkinPickerUI.gd<>uid://bhh7000hh2i3::::res://art/extendedEnemies/player_sprites/beige/alienBeige.png<>uid://b7yga3m5wvfnv::::res://art/extendedEnemies/player_sprites/beige/alienBeige_jump.png<>uid://demthuws1naer::::res://art/extendedEnemies/player_sprites/blue/alienBlue.png<>uid://cphhcyl0up8dc::::res://art/extendedEnemies/player_sprites/blue/alienBlue_jump.png<>uid://b3ra5yws0w1fh::::res://interfaces/skin_picker_button_group.tres<>uid://f8vuycbq3upn::::res://art/extendedEnemies/player_sprites/green/alienGreen.png<>uid://bbh0v0a0scfb4::::res://art/extendedEnemies/player_sprites/green/alienGreen_jump.png<>uid://cv2byeyt5ti6r::::res://art/extendedEnemies/player_sprites/pink/alienPink.png<>uid://qs54dfs512vv::::res://art/extendedEnemies/player_sprites/pink/alienPink_jump.png
 skin_picker_button_group.tres::ButtonGroup::4386857596592412441::1717947655::0::1::::<><>::
 ::res://interfaces/Recursos Interfaces/::1716367460
 OpcionDesplegable.gd::GDScript::-1::1716323964::0::1::::<>Control<>::
 OpcionDesplegable.tscn::PackedScene::4267276267179789965::1715158536::0::1::::<><>::res://interfaces/Recursos Interfaces/OpcionDesplegable.gd
 SelectorResolucion.gd::GDScript::-1::1716323964::0::1::::<>Control<>::
 SelectorResolucion.tscn::PackedScene::8586293368285849560::1715158536::0::1::::<><>::res://interfaces/Recursos Interfaces/SelectorResolucion.gd
-::res://levels/::1717950210
-level1.gd::GDScript::-1::1717949417::0::1::::<>Node<>::
-level1.tscn::PackedScene::902654487916384161::1717950210::0::1::::<><>::res://levels/level1.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://lb8c46q3d5yk::::res://interfaces/PuaseUI.tscn<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://dr8sp2jykppjm::::res://levels/PB_blue-sky.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png<>uid://byjpnl1o3a0au::::res://art/kenney_platformer-art-deluxe/Base pack/Vector/tiles.svg<>uid://dfuhvufai4c80::::res://art/buildings/Vector/sheet.svg<>uid://dnsf0g856jt3e::::res://art/extendedTileset/PNG Grass/grassHalf.png
-level2.gd::GDScript::-1::1717949511::0::1::::<>Node<>::
-level2.tscn::PackedScene::4917150001335056827::1717950210::0::1::::<><>::res://levels/level2.gd<>uid://lb8c46q3d5yk::::res://interfaces/PuaseUI.tscn<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://bcmmwkevst6xb::::res://levels/PB_castle-sky.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://b0sog2mswugo4::::res://art/extendedTileset/PNG Castle/Spritesheet/sheet.png<>uid://dvwrvw605eydl::::res://art/extendedTileset/PNG Castle/castleHalf.png
-level3.gd::GDScript::-1::1717949524::0::1::::<>Node<>::
-level3.tscn::PackedScene::1511223007198357541::1717950210::0::1::::<><>::res://levels/level3.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://lb8c46q3d5yk::::res://interfaces/PuaseUI.tscn<>uid://deuy7xc6uj6bn::::res://art/extendedTileset/Vector/part2.svg<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://byjpnl1o3a0au::::res://art/kenney_platformer-art-deluxe/Base pack/Vector/tiles.svg
-PB_blue-sky.tscn::PackedScene::8421717984726310482::1717947655::0::1::::<><>::uid://c8d61ocho8sro::::res://art/background/Backgrounds/backgroundEmpty.png<>uid://chqqnt6ryi8ei::::res://art/background/PNG/Default/cloud1.png<>uid://bd3to205p38fv::::res://art/background/PNG/Default/cloud2.png<>uid://c5h2ep8ce88md::::res://art/background/PNG/Default/cloud3.png
+::res://levels/::1718265972
+level1.gd::GDScript::-1::1718265869::0::1::::<>Node<>::
+level1.tscn::PackedScene::902654487916384161::1718265869::0::1::::<><>::res://levels/level1.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://lb8c46q3d5yk::::res://interfaces/PuaseUI.tscn<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://dr8sp2jykppjm::::res://levels/PB_blue-sky.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png<>uid://byjpnl1o3a0au::::res://art/kenney_platformer-art-deluxe/Base pack/Vector/tiles.svg<>uid://dfuhvufai4c80::::res://art/buildings/Vector/sheet.svg<>uid://dnsf0g856jt3e::::res://art/extendedTileset/PNG Grass/grassHalf.png
+level2.gd::GDScript::-1::1718265972::0::1::::<>Node<>::
+level2.tscn::PackedScene::4917150001335056827::1718265972::0::1::::<><>::res://levels/level2.gd<>uid://lb8c46q3d5yk::::res://interfaces/PuaseUI.tscn<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://bcmmwkevst6xb::::res://levels/PB_castle-sky.tscn<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://pfwpxdsm55n7::::res://art/buildings/Tiles/windowOpen.png<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://b0sog2mswugo4::::res://art/extendedTileset/PNG Castle/Spritesheet/sheet.png<>uid://dvwrvw605eydl::::res://art/extendedTileset/PNG Castle/castleHalf.png
+level3.gd::GDScript::-1::1717981184::0::1::::<>Node<>::
+level3.tscn::PackedScene::1511223007198357541::1718265842::0::1::::<><>::res://levels/level3.gd<>uid://cm24fa4i5n83u::::res://interfaces/HudUI.tscn<>uid://lb8c46q3d5yk::::res://interfaces/PuaseUI.tscn<>uid://deuy7xc6uj6bn::::res://art/extendedTileset/Vector/part2.svg<>uid://ctehrdujrlly2::::res://art/extendedTileset/Vector/part1.svg<>uid://42cwtdufmbc::::res://actors/player.tscn<>uid://byjpnl1o3a0au::::res://art/kenney_platformer-art-deluxe/Base pack/Vector/tiles.svg
+PB_blue-sky.tscn::PackedScene::8421717984726310482::1718265842::0::1::::<><>::uid://c8d61ocho8sro::::res://art/background/Backgrounds/backgroundEmpty.png<>uid://chqqnt6ryi8ei::::res://art/background/PNG/Default/cloud1.png<>uid://bd3to205p38fv::::res://art/background/PNG/Default/cloud2.png<>uid://c5h2ep8ce88md::::res://art/background/PNG/Default/cloud3.png
 PB_castle-sky.tscn::PackedScene::2552339327788688867::1717947656::0::1::::<><>::uid://btcx8vd7gxj6x::::res://art/background/Backgrounds/backgroundCastles.png<>uid://chqqnt6ryi8ei::::res://art/background/PNG/Default/cloud1.png<>uid://bd3to205p38fv::::res://art/background/PNG/Default/cloud2.png<>uid://c5h2ep8ce88md::::res://art/background/PNG/Default/cloud3.png

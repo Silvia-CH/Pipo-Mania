@@ -66,5 +66,4 @@ layout_mode = 2
 [node name="Resolucion" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Opciones/MarginContainer/VBoxContainer" instance=ExtResource("3_40p3c")]
 layout_mode = 2
 
-[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Volver al menu" to="." method="_on_volver_al_menu_pressed"]
-[connection signal="tab_clicked" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas" to="." method="_on_ventanas_tab_clicked"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir" to="." method="_on_salir_pressed"]

@@ -816,6 +816,10 @@ _data = {
 [node name="main" type="Node"]
 script = ExtResource("1_7bm0x")
 
+[node name="Commands" parent="." instance=ExtResource("1_ealtx")]
+process_mode = 3
+layer = 3
+
 [node name="PuaseUi" parent="." instance=ExtResource("2_agm8u")]
 process_mode = 3
 visible = false
@@ -837,16 +841,11 @@ limit_left = 0
 limit_bottom = 900
 limit_smoothed = true
 
-[node name="Commands" parent="." instance=ExtResource("1_ealtx")]
-process_mode = 3
-layer = 3
-
 [node name="DeathDialog" type="ConfirmationDialog" parent="."]
 title = "HAS MUERTO"
 initial_position = 1
 size = Vector2i(400, 120)
 ok_button_text = "Reintentar"
-dialog_text = "womp womp"
 cancel_button_text = "Salir a inicio"
 
 [node name="StartPosition" type="Marker2D" parent="."]
@@ -919,13 +918,13 @@ libraries = {
 }
 autoplay = "movement"
 
+[connection signal="commands_changed" from="Commands" to="Player" method="_on_canvas_layer_commands_changed"]
+[connection signal="pause" from="Commands" to="." method="_on_canvas_layer_pause"]
+[connection signal="unpause" from="Commands" to="." method="_on_canvas_layer_unpause"]
 [connection signal="pause" from="PuaseUi" to="." method="_on_puase_ui_pause"]
 [connection signal="unpause" from="PuaseUi" to="." method="_on_puase_ui_unpause"]
 [connection signal="volver_menu_principal" from="PuaseUi" to="." method="_on_puase_ui_volver_menu_principal"]
 [connection signal="screen_exited" from="Player/VisibleOnScreenNotifier2D3" to="." method="_on_visible_on_screen_notifier_2d_2_screen_exited"]
-[connection signal="commands_changed" from="Commands" to="Player" method="_on_canvas_layer_commands_changed"]
-[connection signal="pause" from="Commands" to="." method="_on_canvas_layer_pause"]
-[connection signal="unpause" from="Commands" to="." method="_on_canvas_layer_unpause"]
 [connection signal="canceled" from="DeathDialog" to="." method="_on_confirmation_dialog_canceled"]
 [connection signal="confirmed" from="DeathDialog" to="." method="_on_confirmation_dialog_confirmed"]
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]

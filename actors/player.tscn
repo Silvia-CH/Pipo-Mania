@@ -45,13 +45,13 @@ var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
 func _ready():
 	$AnimatedSprite2D.animation = \"idle\" + characterSprite
 	var config = ConfigFile.new()
-	var data = config.load(\"res://actors/player.cfg\")
+	var data = config.load(\"res://config/player.cfg\")
 
 	if data != OK:
 		return
-
-	for player in config.get_sections():
-		characterSprite = config.get_value(player, \"player_skin\")
+	else:
+		for player in config.get_sections():
+			characterSprite = config.get_value(player, \"player_skin\")
 	
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.

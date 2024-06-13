@@ -5,12 +5,14 @@ var isPaused = false
 func _on_visible_on_screen_notifier_2d_2_screen_exited():
 	$DeathDialog.show()
 	$Player.can_move = false
+	$Commands.is_paused = true
 
 
 func _on_confirmation_dialog_confirmed():
 	$DeathDialog.hide()
 	$Player.can_move = true
 	$Player.set_position($StartPosition.position)
+	$Commands.is_paused = false
 
 
 func _on_confirmation_dialog_canceled():
@@ -32,10 +34,10 @@ func _on_canvas_layer_unpause():
 func _on_puase_ui_volver_menu_principal():
 	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
 
-
 func _on_puase_ui_pause():
+		get_tree().paused = true
 		$Commands.set_process_mode(PROCESS_MODE_DISABLED)
 
-
 func _on_puase_ui_unpause():
+		get_tree().paused = false
 		$Commands.set_process_mode(PROCESS_MODE_ALWAYS)

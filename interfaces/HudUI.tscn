@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm24fa4i5n83u"]
+[gd_scene load_steps=15 format=3 uid="uid://cm24fa4i5n83u"]
 
 [ext_resource type="Script" path="res://interfaces/HudUI.gd" id="1_mtsca"]
 [ext_resource type="Texture2D" uid="uid://wysdgfu7hh7e" path="res://art/power_icons/sprint.png" id="2_p85o2"]
@@ -17,6 +17,120 @@ bg_color = Color(0.560784, 0.627451, 0.498039, 0.172549)
 [sub_resource type="Theme" id="Theme_j31x6"]
 ItemList/constants/h_separation = 0
 ItemList/styles/selected = SubResource("StyleBoxFlat_dixuj")
+
+[sub_resource type="Theme" id="Theme_dl60j"]
+Label/font_sizes/font_size = 30
+
+[sub_resource type="Animation" id="Animation_yquo1"]
+resource_name = "fade"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NonExistant:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NonExistant:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NonExistant:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NonExistant:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.7, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v0la5"]
+_data = {
+"fade": SubResource("Animation_yquo1")
+}
+
+[sub_resource type="Animation" id="Animation_peipb"]
+resource_name = "fade"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/font_color:r")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:theme_override_colors/font_color:g")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:theme_override_colors/font_color:b")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(),
+"points": PackedFloat32Array(),
+"times": PackedFloat32Array()
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:theme_override_colors/font_color:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 0.6, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xw8y0"]
+_data = {
+"fade": SubResource("Animation_peipb")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_gl8nv"]
+font_size = 45
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer"]
 script = ExtResource("1_mtsca")
@@ -88,5 +202,69 @@ item_2/text = "rápido"
 item_2/icon = ExtResource("4_146xt")
 item_2/disabled = true
 
+[node name="NonExistant" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -100.0
+offset_right = 76.5
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_dl60j")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+text = "NO EXISTE"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NonExistant"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_v0la5")
+}
+
+[node name="Exists" type="Label" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -76.5
+offset_top = -100.0
+offset_right = 76.5
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_dl60j")
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+text = "¡EXITO!"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Exists"]
+libraries = {
+"": SubResource("AnimationLibrary_xw8y0")
+}
+
+[node name="Timer" type="Label" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = 115.0
+grow_horizontal = 0
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_gl8nv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="saveTimer" from="." to="." method="_on_save_timer"]
 [connection signal="pressed" from="TextEdit/Enter" to="." method="_on_enter_pressed"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_item_list_item_selected"]
