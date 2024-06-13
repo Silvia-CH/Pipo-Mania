@@ -67,7 +67,8 @@ func _physics_process(delta):
 			if not is_on_floor():
 				velocity.y += gravity * delta
 				$AnimatedSprite2D.flip_h = velocity.x < 0
-				jump_count -= 1
+				if powers.find(\"pujm\") != -1:
+					jump_count -= 1
 					
 			if is_on_floor():
 				if velocity.length() > 0:
@@ -252,9 +253,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a2oid"]
-radius = 33.75
-height = 97.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fwes3"]
+size = Vector2(67.5, 92.9167)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(100, 100)
@@ -265,8 +265,9 @@ script = SubResource("GDScript_bx58s")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.8, 0.8)
 sprite_frames = SubResource("SpriteFrames_jkujg")
-animation = &"idleAzul"
+animation = &"jumpBeige"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.166668)
 scale = Vector2(0.8, 0.8)
-shape = SubResource("CapsuleShape2D_a2oid")
+shape = SubResource("RectangleShape2D_fwes3")

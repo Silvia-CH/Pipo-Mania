@@ -8,13 +8,11 @@ func _on_visible_on_screen_notifier_2d_2_screen_exited():
 	$Player.can_move = false
 	$Commands.is_paused = true
 
-
 func _on_confirmation_dialog_confirmed():
 	$DeathDialog.hide()
 	$Player.can_move = true
 	$Player.set_position($StartPosition.position)
 	$Commands.is_paused = false
-
 
 func _on_confirmation_dialog_canceled():
 	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")

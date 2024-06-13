@@ -19,3 +19,6 @@ res://config/timer.cfg
 res://interfaces/skin_picker_button_group.tres
 res://interfaces/AccountUI.gd
 res://levels/PB_red_forest.tscn
+res://interfaces/AccountUI.tscn
+res://interfaces/CambiarControl.tscn
+res://interfaces/PuaseUIALT.tscn
