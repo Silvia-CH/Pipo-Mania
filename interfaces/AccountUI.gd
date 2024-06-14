@@ -16,12 +16,9 @@ extends Control
 @onready var apodoCH = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer/Apodo
 @onready var apodoPRD = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/HBoxContainer/ApodoPRD
 @onready var tiempoP1 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer/Label
-@onready var tiempoP2 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer/Label2
-@onready var tiempoP3 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer/Label3
-@onready var tiempoC1 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer/Label
-@onready var tiempoC2 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer/Label2
-@onready var tiempoC3 = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer/Label3
-@onready var refrescar = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Refrescar
+@onready var refrescar = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/HBoxContainer/Refrescar
+@onready var actualizar = $"ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/HBoxContainer/Actualizar Puntuacion"
+@onready var clasi = $ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/ItemList
 
 @onready var rotacion = false;
 @onready var userdata: FirestoreCollection = Firebase.Firestore.collection("info")
@@ -67,7 +64,7 @@ func _on_registro_pressed():
 	var pass2 = passwdRESREP.text
 	if(es_email(email)):
 		if(pass1 == pass2):
-			if(pass1.length >9):
+			if(str(pass1).length() >9):
 				valnum = tiene_numeros(pass1)
 				if(valnum):
 					valchar = tiene_letras(pass1)
@@ -83,7 +80,41 @@ func _on_registro_pressed():
 			mensajeAVISO.text = "Error : Contraseñas no coinciden"
 	else:
 		mensajeAVISO.text = "Error : Email Invalido"
-	
+
+## Valida si la cadena proporcionada tiene al menos una letra
+func tiene_letras(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("[a-zA-Z]+")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
+
+## Valida si la cadena proporcionada tiene al menos un numero
+func tiene_numeros(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("\\d")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
+
+## Valida si la cadena proporcionada es un email (texto@algo.almenos 2 caracteres)
+func es_email(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
+
+func tiene_especiales(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("^[!@#$&()`.+,\"]*$")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
 
 ## Funcion que guarda el token de sesion y cambia la ventana a la de usuario
 func on_login_succeded(auth):
@@ -180,12 +211,21 @@ func _on_load_data():
 
 ## Actualiza el nombre de usuario con los datos proporcionados
 func _on_update(datos):
+	var val = true
 	var auth = Firebase.Auth.auth
-	if auth.localid:
+	var documento = await get_clasificacion()
+	var tarea: FirestoreTask = userdata.get_doc(auth.localid)
+	var tareaFIN: FirestoreTask = await tarea.task_finished
+	var documento2 = tareaFIN.document
+	for i in documento.doc_fields.keys().size():
+		if(documento.doc_fields.keys()[i] == datos):
+			val = false
+	if auth.localid && val:
 		var data: Dictionary = {
 			"username": datos
 		}
-		var tarea: FirestoreTask = userdata.update(auth.localid,data)
+		var tarea2: FirestoreTask = userdata.update(auth.localid,data)
+		load_data.emit()
 
 ## Establece datos genericos para usuarios nuevos
 func stablish_datos(auth):
@@ -197,8 +237,7 @@ func stablish_datos(auth):
 		var data: Dictionary = {
 			"username": usuario,
 			"tiempo1" : tiempos,
-			"tiempo2" : tiempos,
-			"tiempo3" : tiempos,
+			"float1" : 9999,
 		}
 		var tarea: FirestoreTask = userdata.update(auth.localid,data)
 
@@ -212,16 +251,15 @@ func load_clasificar():
 		var documento = tareaFIN.document
 		if documento && documento.doc_fields:
 			tiempoP1.text = "%s" %documento.doc_fields.tiempo1
-			tiempoP2.text = "%s" %documento.doc_fields.tiempo2
-			tiempoP3.text = "%s" %documento.doc_fields.tiempo3
 		## Refresca la clasificacion Global
-		var tarea2: FirestoreTask = userdata.get_doc("clasificacion")
-		var tareaFIN2: FirestoreTask = await tarea2.task_finished
-		var documento2 = tareaFIN2.document
+		var documento2 = await get_clasificacion()
+		var texto
+		if(clasi.get_item_count()>0):
+			clasi.clear()
 		if documento2 && documento2.doc_fields:
-			tiempoC1.text = "%s" %documento2.doc_fields.tiempo1
-			tiempoC2.text = "%s" %documento2.doc_fields.tiempo2
-			tiempoC3.text = "%s" %documento2.doc_fields.tiempo3
+			for i in documento2.doc_fields.keys().size():
+				texto = str(documento2.doc_fields.keys()[i]) +" : "+ str(documento2.doc_fields.values()[i])
+				clasi.add_item(texto,null,true)
 
 ## Llama al metodo de refrescar las tablas de clasificacion
 func _on_refrescar_pressed():
@@ -230,91 +268,43 @@ func _on_refrescar_pressed():
 	var documento2 = tareaFIN2.document
 	print(documento2.doc_fields.keys()[0])
 	print(tiene_especiales("pipo@gmailcom"))
-	ordenar_Personal()
+	#ordenar_Personal()
 	load_clasificar()
 
-## Valida si la cadena proporcionada tiene al menos una letra
-func tiene_letras(cadena) -> bool:
-	var regex = RegEx.new()
-	regex.compile("[a-zA-Z]+")
-	if regex.search(str(cadena)):
-		return true
-	else:
-		return false
+func _on_actualizar_puntuacion_pressed():
+	subir_tiempos()
 
-## Valida si la cadena proporcionada tiene al menos un numero
-func tiene_numeros(cadena) -> bool:
-	var regex = RegEx.new()
-	regex.compile("\\d")
-	if regex.search(str(cadena)):
-		return true
-	else:
-		return false
-
-## Valida si la cadena proporcionada es un email (texto@algo.almenos 2 caracteres)
-func es_email(cadena) -> bool:
-	var regex = RegEx.new()
-	regex.compile("^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$")
-	if regex.search(str(cadena)):
-		return true
-	else:
-		return false
-
-
-func tiene_especiales(cadena) -> bool:
-	var regex = RegEx.new()
-	regex.compile("^[!@#$&()`.+,\"]*$")
-	if regex.search(str(cadena)):
-		return true
-	else:
-		return false
-
-## Ordena los tiempos personales de menor a mayor
-func ordenar_Personal():
-	var val = false
-	var k = 0
-	var tiempos = ["","","",""]
-	var tiempos2 = ["","",""]
-	var tiempoTemp 
-	var tiempo1 = [0,0,0]
-	var tiempo2 = [0,0,0]
-	var tiempo3 = [0,0,0]
+func get_clasificacion() -> FirestoreDocument:
 	var auth = Firebase.Auth.auth
-	if auth.localid:
-		var tarea: FirestoreTask = userdata.get_doc(auth.localid)
-		var tareaFIN: FirestoreTask = await tarea.task_finished
-		var documento = tareaFIN.document
-		for i in 4:
-			if(documento.doc_fields.keys()[i].contains("tiempo")):
-				if(!(documento.doc_fields.values()[i]).is_empty()):
-					tiempos[i] = documento.doc_fields.values()[i]
-		for t in 4:
-			if(!tiempos[t].is_empty()):
-				val = false
-				k = 0
-				while !val && k<4:
-					if(tiempos2[k].is_empty()):
-						tiempos2[k] = tiempos[t]
-						val = true
-					k = k+1
-		print(documento.doc_fields.values())
-		print(tiempos2)
-		
-		tiempoTemp = tiempos2[0].split(':')
-		print(tiempoTemp)
-		tiempo1[0] = int(tiempoTemp[0])
-		tiempo1[1] = int(tiempoTemp[1])
-		tiempo1[2] = int(tiempoTemp[2])
-		tiempoTemp = tiempos2[1].split(':')
-		print(tiempoTemp)
-		tiempo2[0] = int(tiempoTemp[0])
-		tiempo2[1] = int(tiempoTemp[1])
-		tiempo2[2] = int(tiempoTemp[2])
-		tiempoTemp = tiempos2[2].split(':')
-		print(tiempoTemp)
-		tiempo3[0] = int(tiempoTemp[0])
-		tiempo3[1] = int(tiempoTemp[1])
-		tiempo3[2] = int(tiempoTemp[2])
-		print(tiempo1)
-		print(tiempo2)
-		print(tiempo3)
+	var tarea= userdata.get_doc("clasificacion")
+	var tareaFIN= await tarea.task_finished
+	var documento = tareaFIN.document
+	return documento
+
+func subir_tiempos():
+	var config = ConfigFile.new()
+	var data = config.load("res://config/timer.cfg")
+	var float1 
+	var tiempo1 
+	for time in config.get_sections():
+			float1 = config.get_value(time, "timeFloat")
+			tiempo1 = config.get_value(time, "time")
+	if(float1>0):
+		var auth = Firebase.Auth.auth
+		if auth.localid:
+			var tarea: FirestoreTask = userdata.get_doc(auth.localid)
+			var tareaFIN: FirestoreTask = await tarea.task_finished
+			var documento = tareaFIN.document
+			if(documento.doc_fields.float1 > float1):
+				var datto: Dictionary = {
+					"tiempo1" : tiempo1,
+					"float1" : float1
+				}
+				var tarea2: FirestoreTask = userdata.update(auth.localid,datto)
+				var documento2 = await get_clasificacion()
+				var datto2: Dictionary = {
+						 documento.doc_fields.username: tiempo1,
+					}
+				var tarea3= userdata.update("clasificacion",datto2)
+
+
