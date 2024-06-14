@@ -52,15 +52,38 @@ func _on_salir_pressed():
 func _on_inicio_sesion_pressed():
 	var email = emailLOG.text
 	var passwd = passwdLOG.text
-	Firebase.Auth.login_with_email_and_password(emailLOG.text,passwdLOG.text)
+	if(es_email(email)):
+		Firebase.Auth.login_with_email_and_password(emailLOG.text,passwdLOG.text)
+	else:
+		mensajeAVISO.text = "Error : Email Invalido"
+
 	
 ## Funcion de registro
 func _on_registro_pressed():
+	var valnum = false
+	var valchar = false
 	var email = emailRES.text
 	var pass1 = passwdRES.text
 	var pass2 = passwdRESREP.text
-	if(pass1 == pass2):
-		Firebase.Auth.signup_with_email_and_password(email,pass2)
+	if(es_email(email)):
+		if(pass1 == pass2):
+			if(pass1.length >9):
+				valnum = tiene_numeros(pass1)
+				if(valnum):
+					valchar = tiene_letras(pass1)
+					if(valchar):
+						Firebase.Auth.signup_with_email_and_password(email,pass2)
+					else:
+						mensajeAVISO.text = "Error : Contraseña no tiene letras"
+				else:
+					mensajeAVISO.text = "Error : Contraseña no tiene números"
+			else:
+				mensajeAVISO.text = "Error : Contraseña inferior a 9 caracteres"
+		else: 
+			mensajeAVISO.text = "Error : Contraseñas no coinciden"
+	else:
+		mensajeAVISO.text = "Error : Email Invalido"
+	
 
 ## Funcion que guarda el token de sesion y cambia la ventana a la de usuario
 func on_login_succeded(auth):
@@ -164,6 +187,7 @@ func _on_update(datos):
 		}
 		var tarea: FirestoreTask = userdata.update(auth.localid,data)
 
+## Establece datos genericos para usuarios nuevos
 func stablish_datos(auth):
 	var tiempos = "00:00:00"
 	var rng = RandomNumberGenerator.new()
@@ -178,6 +202,7 @@ func stablish_datos(auth):
 		}
 		var tarea: FirestoreTask = userdata.update(auth.localid,data)
 
+## Carga las 2 tablas de clasificacion
 func load_clasificar():
 	var auth2 = Firebase.Auth.auth
 	if auth2.localid:
@@ -198,23 +223,98 @@ func load_clasificar():
 			tiempoC2.text = "%s" %documento2.doc_fields.tiempo2
 			tiempoC3.text = "%s" %documento2.doc_fields.tiempo3
 
-
+## Llama al metodo de refrescar las tablas de clasificacion
 func _on_refrescar_pressed():
 	var tarea2: FirestoreTask = userdata.get_doc("clasificacion")
 	var tareaFIN2: FirestoreTask = await tarea2.task_finished
 	var documento2 = tareaFIN2.document
 	print(documento2.doc_fields.keys()[0])
+	print(tiene_especiales("pipo@gmailcom"))
+	ordenar_Personal()
 	load_clasificar()
 
+## Valida si la cadena proporcionada tiene al menos una letra
+func tiene_letras(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("[a-zA-Z]+")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
+
+## Valida si la cadena proporcionada tiene al menos un numero
+func tiene_numeros(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("\\d")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
+
+## Valida si la cadena proporcionada es un email (texto@algo.almenos 2 caracteres)
+func es_email(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
+
+
+func tiene_especiales(cadena) -> bool:
+	var regex = RegEx.new()
+	regex.compile("^[!@#$&()`.+,\"]*$")
+	if regex.search(str(cadena)):
+		return true
+	else:
+		return false
+
+## Ordena los tiempos personales de menor a mayor
 func ordenar_Personal():
+	var val = false
+	var k = 0
+	var tiempos = ["","","",""]
+	var tiempos2 = ["","",""]
+	var tiempoTemp 
+	var tiempo1 = [0,0,0]
+	var tiempo2 = [0,0,0]
+	var tiempo3 = [0,0,0]
 	var auth = Firebase.Auth.auth
 	if auth.localid:
 		var tarea: FirestoreTask = userdata.get_doc(auth.localid)
 		var tareaFIN: FirestoreTask = await tarea.task_finished
 		var documento = tareaFIN.document
-		for i in 3:
+		for i in 4:
 			if(documento.doc_fields.keys()[i].contains("tiempo")):
-				print("pipo")
-				tiempoP1.text = "%s" %documento.doc_fields.tiempo1
-				tiempoP2.text = "%s" %documento.doc_fields.tiempo2
-				tiempoP3.text = "%s" %documento.doc_fields.tiempo3
+				if(!(documento.doc_fields.values()[i]).is_empty()):
+					tiempos[i] = documento.doc_fields.values()[i]
+		for t in 4:
+			if(!tiempos[t].is_empty()):
+				val = false
+				k = 0
+				while !val && k<4:
+					if(tiempos2[k].is_empty()):
+						tiempos2[k] = tiempos[t]
+						val = true
+					k = k+1
+		print(documento.doc_fields.values())
+		print(tiempos2)
+		
+		tiempoTemp = tiempos2[0].split(':')
+		print(tiempoTemp)
+		tiempo1[0] = int(tiempoTemp[0])
+		tiempo1[1] = int(tiempoTemp[1])
+		tiempo1[2] = int(tiempoTemp[2])
+		tiempoTemp = tiempos2[1].split(':')
+		print(tiempoTemp)
+		tiempo2[0] = int(tiempoTemp[0])
+		tiempo2[1] = int(tiempoTemp[1])
+		tiempo2[2] = int(tiempoTemp[2])
+		tiempoTemp = tiempos2[2].split(':')
+		print(tiempoTemp)
+		tiempo3[0] = int(tiempoTemp[0])
+		tiempo3[1] = int(tiempoTemp[1])
+		tiempo3[2] = int(tiempoTemp[2])
+		print(tiempo1)
+		print(tiempo2)
+		print(tiempo3)

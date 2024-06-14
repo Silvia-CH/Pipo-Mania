@@ -249,13 +249,13 @@ custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="Global" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion"]
+[node name="Global" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion"]
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global"]
-custom_minimum_size = Vector2(500, 200)
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global"]
+custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -269,29 +269,30 @@ text = "Admin: 00:00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
-layout_mode = 2
-text = "Silvia - 08:23:55"
-horizontal_alignment = 1
-
-[node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
-layout_mode = 2
-
-[node name="Label4" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Global/VBoxContainer"]
+[node name="Label2" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "Admin: 00:00:00"
 horizontal_alignment = 1
 
-[node name="Personal" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion"]
+[node name="Label3" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Global/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Admin: 00:00:00"
+horizontal_alignment = 1
+
+[node name="Personal" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion"]
 visible = false
 custom_minimum_size = Vector2(400, 0)
 layout_mode = 2
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Personal"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal"]
 layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
 
-[node name="Label" type="Label" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/Clasificiacion/Personal/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Clasificiacion/Personal/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
@@ -334,3 +335,4 @@ text = "Refrescar"
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/VBoxContainer/Rename" to="." method="_on_rename_pressed"]
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/RegisteredUI/VBoxContainer/Logout" to="." method="_on_logout_pressed"]
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/ContenedorUI/Alternador/Rotar" to="." method="_on_rotar_pressed"]
+[connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer2/Cuenta/HBoxContainer/VBoxContainer/Refrescar" to="." method="_on_refrescar_pressed"]
