@@ -19,6 +19,13 @@ func _on_canvas_layer_unpause():
 		$PuaseUi.set_process_mode(PROCESS_MODE_ALWAYS)
 
 func _on_puase_ui_volver_menu_principal():
+	var config = ConfigFile.new()
+	var data = config.load("res://config/timer.cfg")
+	if data != OK:
+		config.set_value("Timer", "timeFloat", 0.0)
+		config.set_value("Timer", "time", "0.0")
+
+		config.save("res://config/timer.cfg")
 	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
 
 func _on_puase_ui_pause():
@@ -40,7 +47,9 @@ func _on_area_2d_body_entered(_body):
 	$Player/Fin.visible = true
 
 func _on_button_pressed():
-	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
+	$Commands.saveTimer.emit()
+	get_tree().change_scene_to_file("res://interfaces/MainUI1.tscn")
 
 func _on_exit_body_entered(_body):
-	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
+	$Commands.saveTimer.emit()
+	get_tree().change_scene_to_file("res://interfaces/MainUI1.tscn")

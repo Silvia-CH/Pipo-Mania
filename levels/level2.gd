@@ -15,7 +15,13 @@ func _on_confirmation_dialog_confirmed():
 	$Commands.is_paused = false
 
 func _on_confirmation_dialog_canceled():
-	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
+	var config = ConfigFile.new()
+	var data = config.load("res://config/timer.cfg")
+	if data != OK:
+		config.set_value("Timer", "timeFloat", 0.0)
+		config.set_value("Timer", "time", "0.0")
+		config.save("res://config/timer.cfg")
+	get_tree().change_scene_to_file("res://interfaces/MainUI1.tscn")
 
 func _on_canvas_layer_pause():
 	if !isPaused:
@@ -35,7 +41,14 @@ func _on_door_body_entered(_body):
 	get_tree().change_scene_to_packed(siguiente)
 
 func _on_puase_ui_volver_menu_principal():
-	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
+	var config = ConfigFile.new()
+	var data = config.load("res://config/timer.cfg")
+	if data != OK:
+		config.set_value("Timer", "timeFloat", 0.0)
+		config.set_value("Timer", "time", "0.0")
+
+		config.save("res://config/timer.cfg")
+	get_tree().change_scene_to_file("res://interfaces/MainUI1.tscn")
 
 func _on_puase_ui_pause():
 		get_tree().paused = true

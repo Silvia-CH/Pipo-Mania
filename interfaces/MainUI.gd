@@ -4,7 +4,7 @@ extends Control
 @export var menu_Opciones_precargada = preload("res://interfaces/PuaseUI.tscn")
 @export var menu_Cuenta_precargada = preload("res://interfaces/AccountUI.tscn")
 
-func _ready():
+func _on_empezar_button_down():
 	var config = ConfigFile.new()
 	var data = config.load("res://config/timer.cfg")
 	if data != OK:
@@ -12,7 +12,6 @@ func _ready():
 		config.set_value("Timer", "time", "0.0")
 
 		config.save("res://config/timer.cfg")
-func _on_empezar_button_down():
 	get_tree().change_scene_to_packed(partida_precargada)
 
 func _on_cuenta_button_down():

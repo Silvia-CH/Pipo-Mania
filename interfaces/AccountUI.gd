@@ -32,14 +32,13 @@ signal update
 ## Esta funcion se ejecuta nada mas iniciar la escena
 func _ready():
 	set_process(false)
-
 	Firebase.Auth.login_succeeded.connect(on_login_succeded)
 	Firebase.Auth.signup_succeeded.connect(on_signup_succeded)
 	Firebase.Auth.login_failed.connect(on_login_failed)
 	Firebase.Auth.signup_failed.connect(on_signup_failed)
 	if Firebase.Auth.check_auth_file():
 		block_login.emit()
-		
+	
 ## Funcion para volver al menú principal despues de presionar el botón
 func _on_salir_pressed():
 	salir_menu_cuenta.emit()
@@ -103,14 +102,6 @@ func tiene_numeros(cadena) -> bool:
 func es_email(cadena) -> bool:
 	var regex = RegEx.new()
 	regex.compile("^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,})$")
-	if regex.search(str(cadena)):
-		return true
-	else:
-		return false
-
-func tiene_especiales(cadena) -> bool:
-	var regex = RegEx.new()
-	regex.compile("^[!@#$&()`.+,\"]*$")
 	if regex.search(str(cadena)):
 		return true
 	else:
@@ -262,13 +253,7 @@ func load_clasificar():
 				clasi.add_item(texto,null,true)
 
 ## Llama al metodo de refrescar las tablas de clasificacion
-func _on_refrescar_pressed():
-	var tarea2: FirestoreTask = userdata.get_doc("clasificacion")
-	var tareaFIN2: FirestoreTask = await tarea2.task_finished
-	var documento2 = tareaFIN2.document
-	print(documento2.doc_fields.keys()[0])
-	print(tiene_especiales("pipo@gmailcom"))
-	#ordenar_Personal()
+func _on_refrescar_pressed():	
 	load_clasificar()
 
 func _on_actualizar_puntuacion_pressed():
@@ -286,9 +271,12 @@ func subir_tiempos():
 	var data = config.load("res://config/timer.cfg")
 	var float1 
 	var tiempo1 
-	for time in config.get_sections():
-			float1 = config.get_value(time, "timeFloat")
-			tiempo1 = config.get_value(time, "time")
+	if data == OK:
+		for time in config.get_sections():
+				float1 = config.get_value(time, "timeFloat")
+				tiempo1 = config.get_value(time, "time")
+	else:
+		print("kakota")
 	if(float1>0):
 		var auth = Firebase.Auth.auth
 		if auth.localid:
@@ -296,6 +284,7 @@ func subir_tiempos():
 			var tareaFIN: FirestoreTask = await tarea.task_finished
 			var documento = tareaFIN.document
 			if(documento.doc_fields.float1 > float1):
+				print("pipo")
 				var datto: Dictionary = {
 					"tiempo1" : tiempo1,
 					"float1" : float1
@@ -306,5 +295,6 @@ func subir_tiempos():
 						 documento.doc_fields.username: tiempo1,
 					}
 				var tarea3= userdata.update("clasificacion",datto2)
+	load_clasificar()
 
 

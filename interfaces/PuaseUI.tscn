@@ -110,26 +110,5 @@ accion = "dash"
 [node name="HSeparator2" type="HSeparator" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CambiarControl5" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "space"
-
-[node name="CambiarControl6" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "left"
-
-[node name="CambiarControl7" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "right"
-
-[node name="CambiarControl8" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer/VBoxContainer" instance=ExtResource("4_agllu")]
-layout_mode = 2
-accion = "dash"
-
-[node name="VBoxContainer2" type="VBoxContainer" parent="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas/Controles/ScrollContainer"]
-layout_mode = 2
-theme_override_constants/separation = 90
-alignment = 1
-
 [connection signal="pressed" from="ContenedorPadre/MarginContainer/VBoxContainer/HBoxContainer/Salir" to="." method="_on_volver_al_menu_pressed"]
 [connection signal="tab_clicked" from="ContenedorPadre/MarginContainer/VBoxContainer/Ventanas" to="." method="_on_ventanas_tab_clicked"]

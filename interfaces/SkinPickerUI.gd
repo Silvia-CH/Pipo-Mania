@@ -2,7 +2,6 @@ extends Node
 
 @export var btnGroup: ButtonGroup
 @export var nivel = preload("res://levels/level1.tscn")
-@export var menu = preload("res://interfaces/MainUI.tscn")
 var skin: String
 
 func _ready():
@@ -34,5 +33,3 @@ func _on_guardar_pressed():
 		$SaveDialog.show()
 
 
-func _on_salir_pressed():
-	get_tree().change_scene_to_packed(menu)

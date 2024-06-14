@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://pfwpxdsm55n7" path="res://art/buildings/Tiles/windowOpen.png" id="6_ijvav"]
 [ext_resource type="Texture2D" uid="uid://byjpnl1o3a0au" path="res://art/kenney_platformer-art-deluxe/Base pack/Vector/tiles.svg" id="6_sorfr"]
 [ext_resource type="Texture2D" uid="uid://dfuhvufai4c80" path="res://art/buildings/Vector/sheet.svg" id="7_kie1p"]
-[ext_resource type="Texture2D" path="res://art/extendedTileset/PNG Grass/grassHalf.png" id="8_s2sae"]
+[ext_resource type="Texture2D" uid="uid://dnsf0g856jt3e" path="res://art/extendedTileset/PNG Grass/grassHalf.png" id="8_s2sae"]
 [ext_resource type="Texture2D" uid="uid://dbfg86f05rpni" path="res://art/buildings/signs/clove.png" id="9_0x06h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r80ca"]

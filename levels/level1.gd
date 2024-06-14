@@ -15,21 +15,27 @@ func _on_confirmation_dialog_confirmed():
 	$Commands.is_paused = false
 
 func _on_confirmation_dialog_canceled():
-	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
+	get_tree().change_scene_to_file("res://interfaces/MainUI1.tscn")
+	var config = ConfigFile.new()
+	var data = config.load("res://config/timer.cfg")
+	if data != OK:
+		config.set_value("Timer", "timeFloat", 0.0)
+		config.set_value("Timer", "time", "0.0")
+		config.save("res://config/timer.cfg")
 
 func _on_canvas_layer_pause():
 	if !isPaused:
-		get_tree().paused = true
+		#get_tree().paused = true
 		$Player.can_move = false
-		$PuaseUi.set_process_mode(PROCESS_MODE_DISABLED)
+		#$PuaseUi.set_process_mode(PROCESS_MODE_DISABLED)
 		$Plataforma/AnimationPlayer.pause()
 		$Plataforma2/AnimationPlayer.pause()
 	
 func _on_canvas_layer_unpause():
 	if !isPaused:
-		get_tree().paused = false
+		#get_tree().paused = false
 		$Player.can_move = true
-		$PuaseUi.set_process_mode(PROCESS_MODE_ALWAYS)
+		#$PuaseUi.set_process_mode(PROCESS_MODE_ALWAYS)
 		$Plataforma/AnimationPlayer.play()
 		$Plataforma2/AnimationPlayer.play()
 
@@ -38,16 +44,23 @@ func _on_door_body_entered(_body):
 	$Commands.saveTimer.emit()
 
 func _on_puase_ui_volver_menu_principal():
-	get_tree().change_scene_to_file("res://interfaces/MainUI.tscn")
+	get_tree().change_scene_to_file("res://interfaces/MainUI1.tscn")
+	var config = ConfigFile.new()
+	var data = config.load("res://config/timer.cfg")
+	if data != OK:
+		config.set_value("Timer", "timeFloat", 0.0)
+		config.set_value("Timer", "time", "0.0")
+
+		config.save("res://config/timer.cfg")
 
 func _on_puase_ui_pause():
-		get_tree().paused = true
-		$Commands.set_process_mode(PROCESS_MODE_DISABLED)
+		#get_tree().paused = true
+		#$Commands.set_process_mode(PROCESS_MODE_DISABLED)
 		$Plataforma/AnimationPlayer.pause()
 		$Plataforma2/AnimationPlayer.pause()
 
 func _on_puase_ui_unpause():
-		get_tree().paused = false
-		$Commands.set_process_mode(PROCESS_MODE_ALWAYS)
+		#get_tree().paused = false
+		#$Commands.set_process_mode(PROCESS_MODE_ALWAYS)
 		$Plataforma/AnimationPlayer.play()
 		$Plataforma2/AnimationPlayer.play()
